@@ -1,4 +1,5 @@
 # Hadron
+### Power your creative and gamer self
 
 ## Project
 Internet Programming course project by Cheng Yu Yang and David Sabb.
