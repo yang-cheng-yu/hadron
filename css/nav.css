@@ -1,0 +1,6 @@
+@import url('general.css');
+
+.nav {
+    display: flex;
+    flex: 1;
+}

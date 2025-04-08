@@ -1,0 +1,17 @@
+:root {
+    --dark-page-light: #555566;
+    --dark-page-medium: #444455;
+    --dark-page-dark: #333344;
+    --dark-page-darker: #222233;
+
+    --color-normal: #FF3355;
+    --color-light: #FF7799;
+
+    --tint-normal: #FF335533;
+    --tint-light: #FF779933;
+
+    --light-page-light: #FFFFFF;
+    --light-page-medium: #DDDDE0;
+    --light-page-dark: #888899;
+    --light-page-darker: #555566;
+}
