@@ -9,6 +9,8 @@
     position: fixed;
     width: 100%;
 
+    z-index: 1000;
+
     background-color: #555566;
 }
 
@@ -42,4 +44,15 @@
 
 .icon-link a {
     padding: 30px;
+}
+
+#search-box {
+    border-radius: 25px;
+    border: none;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+#search-box:focus {
+    outline: none;
 }

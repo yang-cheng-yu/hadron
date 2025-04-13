@@ -74,27 +74,7 @@ body{
     padding: 0;
 }
 
-.item-1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-}
-
-.item-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-}
-
-.item-3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-}
-.item-4{
+.grid-item{
     display: flex;
     justify-content: center;
     align-items: center;
