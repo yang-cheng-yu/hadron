@@ -23,12 +23,12 @@ function setupNav() {
         </span>
         <span class="nav-item">
             <div class="icon-link">
-                <a href="html/cart.html">
+                <a href="/html/cart.html">
                     <i class="bi bi-cart-fill"></i>
                 </a>
             </div>
             <div class="icon-link">
-                <a href="html/signIn.html">
+                <a href="/html/signIn.html">
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
