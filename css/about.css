@@ -1,0 +1,33 @@
+body{
+    background-color: var(--dark-page-dark) !important;
+    color: var(--light-page-medium) !important;
+    line-height: 1.6 !important;
+}
+
+.container-about{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1000px;
+    justify-items: center;
+    align-items: center;
+}
+
+.aboutText{
+    grid-column: 1;
+    margin: 40px;
+}
+
+.aboutText p{
+    font-size: large;
+
+}
+
+.aboutText h2{
+    font-size: 3.5em;
+    margin-bottom: 60px;
+    padding-top: 20%;
+}
+
+.aboutImg{
+    grid-column: 2;
+}

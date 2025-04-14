@@ -37,7 +37,8 @@ body{
 .imageforcont{
     grid-row: 3;
     grid-column: 1;
-
+    padding-top: 40px;
+    padding-left: 60px;
 }
 
 .imageforcont figcaption{
