@@ -1,7 +1,7 @@
 body{
-    background-color: var(--dark-page-dark) !important;
-    color: var(--light-page-medium) !important;
-    line-height: 1.6 !important;
+    background-color: var(--dark-page-dark);
+    color: var(--light-page-medium);
+    line-height: 1.6;
 }
 
 .container-about{
