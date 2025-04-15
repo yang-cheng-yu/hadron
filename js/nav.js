@@ -11,7 +11,7 @@ function setupNav() {
                 <!-- logo.png -->
             </a>
         </span>
-        <span class="nav-item">
+        <span class="nav-item nav-list">
             <ul>
                 <li class="nav-item list-item"><a href="/html/productListing.html">Products</a></li>
                 <li class="nav-item list-item"><a href="/html/about.html">About</a></li>

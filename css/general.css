@@ -24,3 +24,7 @@ body {
 .first-element{
     padding-top: 80px;
 }
+
+ul {
+    margin: 0;
+}
