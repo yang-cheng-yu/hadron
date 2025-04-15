@@ -27,13 +27,13 @@
     padding: 10px;
 }
 
-.list-item {
+#nav .list-item {
     padding: 0 50px;
     position: relative;
     transition: 0.2s ease-in-out;
 }
 
-.list-item::before {
+#nav .list-item::before {
     content: "";
     background-color: white;
     width: 0;
@@ -46,7 +46,7 @@
     transition: 0.2s ease-in-out;
 }
 
-.list-item:hover::before {
+#nav .list-item:hover::before {
     width: 100px;
     opacity: 1;
 }
@@ -63,7 +63,7 @@
 .icon-link a {
     display: inline-block;
     padding: 30px;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s;
 }
 
 .icon-link a:hover {

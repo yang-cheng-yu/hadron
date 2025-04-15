@@ -1,3 +1,6 @@
+import { fetchData } from "./fetch.js";
+import { appendNewElement } from "./util.js";
+
 document.addEventListener("DOMContentLoaded", initList);
 
 function initList() {
@@ -8,22 +11,6 @@ async function fullList() {
     const data = await fetchData("/json/products.json");
 
     parseList(data, 0);
-}
-
-async function fetchData(uri) {
-    try {
-        const response = await fetch(uri);
-
-        if(!response.ok) {
-            throw new Error(`Network Error: failed to fetch data\nError code: ${response.status}`);
-        }
-
-        const data = await response.json();
-        
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
 }
 
 // Views:
@@ -57,18 +44,11 @@ function parseList(list, style) {
         element.classList.add("list-item");
         
         const img = appendNewElement("img", "", element);
-        img.src = product.image;
+        img.src = "/images/appicons/" + product.image;
 
         appendNewElement("div", product.title, element);
         if(style % 10 == 1) {
             appendNewElement("div", product.description, element)
         }
     });
-}
-
-function appendNewElement(element, textContent, parent) {
-    const element = document.createElement(element);
-    element.textContent = textContent;
-    parent.appendChild(element);
-    return element;
 }

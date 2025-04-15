@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="productListing">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,19 +27,23 @@
 
         <div class="toolbar">
             <span class="btn-set">
-                <button id="btn-grid"></button>
-                <button id="btn-compact-grid"></button>
-                <button id="btn-list"></button>
+                <button id="btn-grid"><i class="bi bi-grid-fill"></i></button>
+                <button id="btn-compact-grid"><i class="bi bi-grid-3x3-gap-fill"></i></button>
+                <button id="btn-list"><i class="bi bi-list"></i></button>
             </span>
             <span class="btn-set">
-                <button id="btn-hide-desc"></button>
-                <button id="btn-show-desc"></button>
+                <button id="btn-hide-desc"><i class="bi bi-file"></i></button>
+                <button id="btn-show-desc"><i class="bi bi-card-text"></i></button>
             </span>
         </div>
 
         <div id="products-list">
-
+            
         </div>
+
+        <script type="module" src="/js/modules/fetch.js"></script>
+        <script type="module" src="/js/modules/util.js"></script>
+        <script type="module" src="/js/modules/listProducts.js"></script>
     </div>
 </body>
 </html>

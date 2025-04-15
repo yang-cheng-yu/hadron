@@ -2,49 +2,49 @@
     {
         "title": "HPlus",
         "description": "Hadron Image editing software",
-        "image": "/images/appicons/HPlus.png",
+        "image": "HPlus.png",
         "price": "60"
     },
     {
         "title": "HEngine",
         "description": "Hadron 3D Game Engine",
-        "image": "/images/HEngine.png",
+        "image": "HEngine.png",
         "price": "300"
     },
     {
         "title": "HEngine2D",
         "description": "Hadron Lightweight 2D Game Engine",
-        "image": "/images/appicons/HEngine2D.png",
+        "image": "HEngine2D.png",
         "price": "80"
     },
     {
-        "title": "HVideo",
+        "title": "HMovie",
         "description": "Hadron Video editing software",
-        "image": "/images/appicons/HVideo.png",
+        "image": "HMovie.png",
         "price": "60"
     },
     {
         "title": "HadronTML",
         "description": "Hadron Web IDE",
-        "image": "/images/appicons/HadronTML.png",
+        "image": "HadronTML.png",
         "price": "0"
     },
     {
         "title": "Hava",
         "description": "Hadron Java IDE",
-        "image": "/images/appicons/Hava.png",
+        "image": "Hava.png",
         "price": "30"
     },
     {
         "title": "HSnake",
         "description": "Hadron Python IDE",
-        "image": "/images/appicons/HSnake.png",
+        "image": "HSnake.png",
         "price": "30"
     },
     {
         "title": "HMix Studio",
         "description": "Hadron DAW",
-        "image": "/images/appicons/HMixStudio.png",
+        "image": "HMixStudio.png",
         "price": "60"
     }
 ]
