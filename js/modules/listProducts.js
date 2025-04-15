@@ -1,9 +1,7 @@
 import { fetchData } from "./fetch.js";
 import { appendNewElement } from "./util.js";
 
-document.addEventListener("DOMContentLoaded", initList);
-
-function initList() {
+export function initList() {
     fullList();
 }
 
