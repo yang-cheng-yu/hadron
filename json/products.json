@@ -1,0 +1,50 @@
+[
+    {
+        "title": "HPlus",
+        "description": "Hadron Image editing software",
+        "image": "/images/appicons/HPlus.png",
+        "price": "60"
+    },
+    {
+        "title": "HEngine",
+        "description": "Hadron 3D Game Engine",
+        "image": "/images/HEngine.png",
+        "price": "300"
+    },
+    {
+        "title": "HEngine2D",
+        "description": "Hadron Lightweight 2D Game Engine",
+        "image": "/images/appicons/HEngine2D.png",
+        "price": "80"
+    },
+    {
+        "title": "HVideo",
+        "description": "Hadron Video editing software",
+        "image": "/images/appicons/HVideo.png",
+        "price": "60"
+    },
+    {
+        "title": "HadronTML",
+        "description": "Hadron Web IDE",
+        "image": "/images/appicons/HadronTML.png",
+        "price": "0"
+    },
+    {
+        "title": "Hava",
+        "description": "Hadron Java IDE",
+        "image": "/images/appicons/Hava.png",
+        "price": "30"
+    },
+    {
+        "title": "HSnake",
+        "description": "Hadron Python IDE",
+        "image": "/images/appicons/HSnake.png",
+        "price": "30"
+    },
+    {
+        "title": "HMix Studio",
+        "description": "Hadron DAW",
+        "image": "/images/appicons/HMixStudio.png",
+        "price": "60"
+    }
+]
