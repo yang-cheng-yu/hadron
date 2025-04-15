@@ -57,10 +57,18 @@
 
 .icon-link {
     display: inline-block;
+    font-size: 2.25em;
 }
 
 .icon-link a {
+    display: inline-block;
     padding: 30px;
+    transition: 0.2s ease-in-out;
+}
+
+.icon-link a:hover {
+    transform: scale(1.1);
+    filter: brightness(0.2);
 }
 
 #search-box {
