@@ -9,5 +9,12 @@ function initApp() {
     const page = document.querySelector("[data-page]").dataset.page;
     if(page === "product-listing") {
         initList();
+        document.getElementById("products").classList.add("selected");
+    }
+    if(page === "about") {
+        document.getElementById("about").classList.add("selected");
+    }
+    if(page === "contact") {
+        document.getElementById("contact").classList.add("selected");
     }
 }

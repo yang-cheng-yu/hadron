@@ -55,6 +55,10 @@ body{
     padding: 50px 150px;
 }
 
+.app img {
+    border-radius: 50px;
+}
+
 .container-grid{
     display: flex;
     flex-wrap: wrap;

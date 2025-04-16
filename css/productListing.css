@@ -69,11 +69,38 @@
     background-color: var(--dark-page-medium);
 }
 
-.products-list {
-    display: grid;
-    grid-template-columns: repeat(1fr, 3);
+.grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.products-list .list-item {
-    height: 100px;
+#products-list .list-item img {
+    border-radius: 50px;
+}
+
+.grid-view .list-item {
+    text-align: center;
+    flex: 1 0 50%;
+    height: 50%;
+    width: 50%;
+    padding-bottom: 50px;
+    
+}
+
+.grid-view .list-item .item-title {
+    font-size: 2em;
+}
+
+.compact-grid-view .list-item {
+    text-align: center;
+    flex: 1 0 25%;
+    height: 25%;
+    width: 25%;
+    padding-bottom: 50px;
+    
+}
+
+.compact-grid-view .list-item .item-title {
+    font-size: 2em;
 }

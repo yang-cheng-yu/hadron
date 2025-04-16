@@ -46,7 +46,8 @@
     transition: 0.2s ease-in-out;
 }
 
-#nav .list-item:hover::before {
+#nav .list-item:hover::before,
+#nav .selected::before {
     width: 100px;
     opacity: 1;
 }
