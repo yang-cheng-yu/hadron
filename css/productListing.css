@@ -1,8 +1,8 @@
 @import url('general.css');
 
 .main {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .title {
@@ -69,14 +69,14 @@
     background-color: var(--dark-page-medium);
 }
 
+#products-list .list-item img {
+    border-radius: 50px;
+}
+
 .grid-view {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-#products-list .list-item img {
-    border-radius: 50px;
 }
 
 .grid-view .list-item {
@@ -92,15 +92,26 @@
     font-size: 2em;
 }
 
+.compact-grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .compact-grid-view .list-item {
     text-align: center;
-    flex: 1 0 25%;
-    height: 25%;
-    width: 25%;
-    padding-bottom: 50px;
+    flex: 1 0 20%;
+    height: 20%;
+    width: 20%;
+    margin: 25px;
     
 }
 
 .compact-grid-view .list-item .item-title {
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+.compact-grid-view .list-item img {
+    width: 100%;
+    object-fit: contain;
 }
