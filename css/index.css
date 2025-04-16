@@ -11,14 +11,10 @@ body{
     background-color: var(--dark-page-darker);
 }
 
-.introText p {
-    margin: 0;
-}
-
 .introText{
     text-align: center;
     background-color: var(--dark-page-darker);
-    padding: 70px;
+    padding: 120px 70px;
     font-size: 25px;
     line-height: 2;
 }
@@ -40,7 +36,6 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 6em;
-    color: var(--light-page-light);
 }
 
 .popular{
@@ -54,21 +49,32 @@ body{
 
 .popular-apps{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
     justify-items: center;
-    padding: 150px;
+    padding: 50px 150px;
 }
 
 .container-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    height: calc(100vh - 80px); /* Full height of the viewport */
     width: 100%; /* Full width of the viewport */
+    overflow: hidden;
 }
 
 .grid-item{
     display: flex;
+    flex: 1 0 50%;
+    height: 50%;
+    width: 50%;
     justify-content: center;
     align-items: center;
+}
+
+.grid-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
