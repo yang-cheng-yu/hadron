@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", setupNav);
-
-function setupNav() {
+export function setupNav() {
     const nav = document.createElement("nav");
     nav.id = "nav";
     nav.innerHTML = `
