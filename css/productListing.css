@@ -115,3 +115,28 @@
     width: 100%;
     object-fit: contain;
 }
+
+.list-view {
+    display: block;
+}
+
+.list-view .list-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 6fr;
+    height: 50px;
+    width: 100%;
+    margin: 50px;
+    align-items: center;
+}
+
+.list-view .list-item .item-title {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 25px;
+}
+
+.list-view .list-item img {
+    display: inline-block;
+    width: 50%;
+    object-fit: contain;
+}
