@@ -11,10 +11,39 @@
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/signIn.css">
+    <link rel="stylesheet" href="../css/signInUp.css">
 
 </head>
 <body>
+    <div class="main first-element">
+        <div class="title">
+            Welcome to Hadron
+        </div>
+        <div class="switch-page">
+            <a href="signUp.html">Create account instead</a>
+        </div>
+
+        <fieldset class="login-set">
+            <div>
+                <label for="username">Username / Email: </label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <div>
+                <a href="#">Forgot my password</a>
+            </div>
+
+            <div>
+                <input type="submit" value="Log In">
+            </div>
+        </fieldset>
+    </div>
+
     <script type="module" src="/js/app.js"></script>
 </body>
 </html>
