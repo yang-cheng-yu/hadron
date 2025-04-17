@@ -1,5 +1,6 @@
 import { initList } from "./modules/listProducts.js";
 import { setupNav } from "./modules/nav.js";
+import { fetchShows } from "./modules/dataRendering.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -17,4 +18,6 @@ function initApp() {
     if(page === "contact") {
         document.getElementById("contact").classList.add("selected");
     }
+    if(page === "dataRendering")
+        fetchShows();
 }
