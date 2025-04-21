@@ -8,7 +8,7 @@ export async function fetchShows(){
 
     const data = await fetchData(uri);
     console.log(data);
-    parseShows(data);
+    parseShows(data.data);
 }
 
 async function fetchData(resourceUri){
@@ -31,26 +31,31 @@ function parseShows(shows) {
     const table = document.getElementById("table-shows");
     table.innerHTML = "";
 
-    for (let i = 0; i < 10; i++) {
-        const newRow = document.getElementById("tr");
+    shows.forEach(show => {
+        const newRow = document.createElement("tr");
         const rowContent = []
 
-        for(i = 0; i < 9; i++) {
-            rowContent[0].textContent = shows.id;
-            rowContent[1].textContent = show.name;
+            for(let i = 0; i < 12; i++) {   
+                rowContent.push(document.createElement("td"));
+                newRow.appendChild(rowContent[i]);
+            }
+            rowContent[0].textContent = show.mal_id;
+            rowContent[1].textContent = show.title;
             rowContent[2].textContent = show.type;
-            rowContent[3].textContent = show.language;
-            rowContent[4].textContent = show.genres.join(" ");
+            rowContent[3].textContent = show.episodes            ;
+            rowContent[4].textContent = show.genres.length ? show.genres[0].name : "";
             rowContent[5].textContent = show.source;
             rowContent[6].textContent = show.status;
-            rowContent[7].textContent = show.aired;
+            rowContent[7].textContent = show.aired.length ? show.aired[0].name : "";
             rowContent[8].textContent = show.score;
             rowContent[9].textContent = show.rank;
+
             const image = document.createElement("img");
-            image.setAttribute("src", show.image.medium);
-            rowContent[8].appendChild(image);
+            image.setAttribute("src", show.images.jpg.image_url);
+            rowContent[10].appendChild(image);
+
+            
 
             table.appendChild(newRow);
-        }
-    };
+    });
 }

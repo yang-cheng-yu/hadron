@@ -31,3 +31,11 @@ body{
 .aboutImg{
     grid-column: 2;
 }
+
+#linkToDR{
+    color: var(--color-normal);
+}
+
+#linkToDR:visited{
+    color: var(--color-light)
+}
