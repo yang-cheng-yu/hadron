@@ -61,7 +61,7 @@ function updateButtons(button, set) {
 async function updateList() {
     const data = await fetchData("/json/products.json");
 
-    parseList(data, style);
+    parseList(data.products, style);
 }
 
 // Views:
@@ -104,7 +104,9 @@ function parseList(list, style) {
         appendNewElement("div", product.title, element).classList.add("item-title");
         if(style % 10 == 1) {
             console.log("Has description");
-            appendNewElement("div", product.description, element).classList.add("item-desc");
+            const desc = appendNewElement("div", `${product.description}\r\n${product.categories.join(" ")}\r\n${product.company}\r\n$${product.price}`, element);
+            desc.classList.add("item-desc");
+            desc.setAttribute('style', 'white-space: pre-line;');
         }
     });
 }

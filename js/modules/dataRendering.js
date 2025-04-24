@@ -42,7 +42,7 @@ function parseShows(shows) {
             rowContent[0].textContent = show.mal_id;
             rowContent[1].textContent = show.title;
             rowContent[2].textContent = show.type;
-            rowContent[3].textContent = show.episodes            ;
+            rowContent[3].textContent = show.episodes;
             rowContent[4].textContent = show.genres.length ? show.genres[0].name : "";
             rowContent[5].textContent = show.source;
             rowContent[6].textContent = show.status;

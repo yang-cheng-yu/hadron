@@ -1,50 +1,103 @@
-[
-    {
-        "title": "HPlus",
-        "description": "Hadron Image editing software",
-        "image": "HPlus.png",
-        "price": "60"
-    },
-    {
-        "title": "HEngine",
-        "description": "Hadron 3D Game Engine",
-        "image": "HEngine.png",
-        "price": "300"
-    },
-    {
-        "title": "HEngine2D",
-        "description": "Hadron Lightweight 2D Game Engine",
-        "image": "HEngine2D.png",
-        "price": "80"
-    },
-    {
-        "title": "HMovie",
-        "description": "Hadron Video editing software",
-        "image": "HMovie.png",
-        "price": "60"
-    },
-    {
-        "title": "HadronTML",
-        "description": "Hadron Web IDE",
-        "image": "HadronTML.png",
-        "price": "0"
-    },
-    {
-        "title": "Hava",
-        "description": "Hadron Java IDE",
-        "image": "Hava.png",
-        "price": "30"
-    },
-    {
-        "title": "HSnake",
-        "description": "Hadron Python IDE",
-        "image": "HSnake.png",
-        "price": "30"
-    },
-    {
-        "title": "HMix Studio",
-        "description": "Hadron DAW",
-        "image": "HMixStudio.png",
-        "price": "60"
-    }
-]
+{   
+    "categories": [
+        {
+            "id": 1,
+            "name": "Creative",
+            "description": "Software for creating media" 
+        },
+        {
+            "id": 2,
+            "name": "IDE",
+            "description": "Integrated Development Environment. Software for coding" 
+        },
+        {
+            "id": 3,
+            "name": "Free",
+            "description": "Free Software" 
+        },
+        {
+            "id": 4,
+            "name": "Paid",
+            "description": "Software cost money$$$" 
+        },
+        {
+            "id": 5,
+            "name": "Producer",
+            "description": "Software for producer studio" 
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "title": "HPlus",
+            "description": "Hadron Image editing software",
+            "categories": ["Creative", "Paid"],
+            "company": "Hadron",
+            "image": "HPlus.png",
+            "price": "60"
+        },
+        {
+            "id": 2,
+            "title": "HEngine",
+            "description": "Hadron 3D Game Engine",
+            "categories": ["IDE", "Paid"],
+            "company": "Hadron",
+            "image": "HEngine.png",
+            "price": "300"
+        },
+        {
+            "id": 3,
+            "title": "HEngine2D",
+            "description": "Hadron Lightweight 2D Game Engine",
+            "categories": ["IDE", "Paid"],
+            "company": "Hadron",
+            "image": "HEngine2D.png",
+            "price": "80"
+        },
+        {
+            "id": 4,
+            "title": "HMovie",
+            "description": "Hadron Video editing software",
+            "categories": ["Producer", "Paid"],
+            "company": "Hadron",
+            "image": "HMovie.png",
+            "price": "60"
+        },
+        {
+            "id": 5,
+            "title": "HadronTML",
+            "description": "Hadron Web IDE",
+            "categories": ["Creative", "Free"],
+            "company": "Hadron",
+            "image": "HadronTML.png",
+            "price": "0"
+        },
+        {
+            "id": 6,
+            "title": "Hava",
+            "description": "Hadron Java IDE",
+            "categories": ["IDE", "Paid"],
+            "company": "Hadron",
+            "image": "Hava.png",
+            "price": "30"
+        },
+        {
+            "id": 7,
+            "title": "HSnake",
+            "description": "Hadron Python IDE",
+            "categories": ["IDE", "Paid"],
+            "company": "Hadron",
+            "image": "HSnake.png",
+            "price": "30"
+        },
+        {
+            "id": 8,
+            "title": "HMix Studio",
+            "description": "Hadron DAW",
+            "categories": ["Producer", "Paid"],
+            "company": "Hadron",
+            "image": "HMixStudio.png",
+            "price": "60"
+        }
+    ]
+}

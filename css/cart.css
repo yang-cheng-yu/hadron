@@ -1,1 +1,10 @@
 @import url('general.css');
+
+.main {
+    display: flex;
+
+}
+
+.box-item {
+    
+}
