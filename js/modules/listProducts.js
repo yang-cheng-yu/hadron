@@ -96,6 +96,9 @@ function parseList(list, style) {
     list.forEach(product => {
         const element = appendNewElement("div", "", parent);
         element.classList.add("list-item");
+        element.addEventListener('click', () => {
+            window.location.href = "product.html"
+        });
         
         const img = appendNewElement("img", "", element);
         img.src = "/images/appicons/" + product.image;

@@ -64,11 +64,29 @@
     height: 50%;
     width: 50%;
     padding: 25px;
-    
+    position: relative;
+}
+
+.grid-view .list-item img {
+    position: relative;
+    z-index: 1;
 }
 
 .grid-view .list-item .item-title {
     font-size: 2em;
+}
+
+.grid-view .list-item .item-desc {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 0;
+    transition: 0.2s ease-in-out;
+}
+
+.grid-view .list-item:hover .item-desc {
+    transform: translate(calc(270px - 50%), 0);
 }
 
 .compact-grid-view {
