@@ -64,15 +64,6 @@ async function updateList() {
     parseList(data.products, style);
 }
 
-// Views:
-// tens
-// 00 = grid
-// 10 = compactGrid
-// 20 = list
-// units
-// 00 = hideDesc
-// 01 = showDesc
-
 function parseList(list, style) {
     const parent = document.getElementById("products-list");
     parent.innerHTML = '';

@@ -55,8 +55,18 @@ body{
     padding: 50px 150px;
 }
 
+.app {
+    display: inline-block;
+}
+
 .app img {
     border-radius: 50px;
+    transition: 0.3s ease-in-out;
+}
+
+.app img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px 10px #FFFFFF55;
 }
 
 .container-grid{
