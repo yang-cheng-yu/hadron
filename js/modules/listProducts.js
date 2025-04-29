@@ -102,7 +102,7 @@ function parseList(list, style) {
         });
         
         const img = appendNewElement("img", "", element);
-        img.src = "/images/appicons/" + product.image;
+        img.src = "/assets/images/appicons/" + product.image;
         img.alt = product.title;
 
         appendNewElement("div", product.title, element).classList.add("item-title");
