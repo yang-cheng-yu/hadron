@@ -3,7 +3,7 @@
 .container-product{
     padding-top: 12%;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 30% 40%;
     grid-template-rows: 100%;
 
 }
@@ -25,7 +25,7 @@
 
 #company{
     font-size: 1.5em;
-    padding-bottom: 8%;
+    padding-bottom: 20%;
 }
 
 #price{
@@ -40,3 +40,8 @@
     font-size: 1.5em;
 }
 
+.cartButton{
+    align-self: end;
+    justify-self: start;
+    padding-bottom:;
+}
