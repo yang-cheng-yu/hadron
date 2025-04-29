@@ -81,12 +81,17 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, 0);
+    border-radius: 30px;
+    padding: 25px;
+    background-color: var(--dark-page-light);
     z-index: 0;
+    opacity: 0;
     transition: 0.2s ease-in-out;
 }
 
 .grid-view .list-item:hover .item-desc {
-    transform: translate(calc(270px - 50%), 0);
+    transform: translate(calc(20vw - 50%), 0);
+    opacity: 1;
 }
 
 .compact-grid-view {

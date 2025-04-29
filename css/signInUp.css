@@ -1,21 +1,36 @@
 @import url('general.css');
+
 .main {
     text-align: center;
+    padding-top: 8vw;
 }
 
 .title {
     display: inline-block;
-    font-size: 3em;
+    font-size: 5em;
+}
+
+.switch-page {
+    transform: translateX(30%);
+}
+
+legend {
+    padding-bottom: 1em;
 }
 
 fieldset {
     display: grid;
     grid-template-columns: 1fr;
     width: 50%;
+    padding: 50px;
+    border-radius: 100px;
+    background-color: var(--dark-page-medium);
+    transform: translateX(50%);
 }
 
 fieldset div {
-    padding: 10px;
+    padding: 0.75em 10px;
+    transform: translateX(-25%);
     text-align: right;
 }
 
