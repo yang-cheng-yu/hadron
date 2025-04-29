@@ -99,9 +99,12 @@ function parseList(list, style) {
         appendNewElement("div", product.title, element).classList.add("item-title");
         if(style % 10 == 1) {
             console.log("Has description");
-            const desc = appendNewElement("div", `${product.description}\r\n${product.categories.join(" ")}\r\nPublisher: ${product.company}\r\n$${product.price}\r\n${product.copiesSold} copies sold`, element);
-            desc.classList.add("item-desc");
-            desc.setAttribute('style', 'white-space: pre-line;');
+            const descLine1 = appendNewElement("div", `${product.description}\r\n${product.categories.join(" ")}\r\nPublisher: ${product.company}`, element);
+            const descLine2 = appendNewElement("div", `$${product.price}\r\n${product.copiesSold} copies sold`, element);
+            descLine1.classList.add("item-desc");
+            descLine2.classList.add("item-desc", "line-two");
+            descLine1.setAttribute('style', 'white-space: pre-line;');
+            descLine2.setAttribute('style', 'white-space: pre-line;');
         }
     });
 }
