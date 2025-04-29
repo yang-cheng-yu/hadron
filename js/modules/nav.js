@@ -11,9 +11,9 @@ export function setupNav() {
         </span>
         <span class="nav-item nav-list">
             <ul>
-                <li class="nav-item list-item" id="products"><a href="/html/productListing.html">Products</a></li>
-                <li class="nav-item list-item" id="about"><a href="/html/about.html">About</a></li>
-                <li class="nav-item list-item" id="contact"><a href="/html/contact.html">Contact</a></li>
+                <li class="nav-item list-item" id="products"><a href="/pages/productListing.html">Products</a></li>
+                <li class="nav-item list-item" id="about"><a href="/pages/about.html">About</a></li>
+                <li class="nav-item list-item" id="contact"><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </span>
         <span>
@@ -21,12 +21,12 @@ export function setupNav() {
         </span>
         <span class="nav-item">
             <div class="icon-link">
-                <a href="/html/cart.html">
+                <a href="/pages/cart.html">
                     <i class="bi bi-cart-fill"></i>
                 </a>
             </div>
             <div class="icon-link">
-                <a href="/html/signIn.html">
+                <a href="/pages/signIn.html">
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
