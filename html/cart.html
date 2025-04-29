@@ -15,11 +15,38 @@
 
 </head>
 <body>
-    <div class="first-element main">
+    <div class="first-element main container-cart">
         <div class="cart-section">
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="table-cart">
+
+                </tbody>
+
+            </table>
 
         </div>
         <div class="to-checkout-section">
+            <div>
+                <label for="promo">Promo:</label>
+                <input type="text" name="promo" id="promo">
+            </div>
+
+            <div id="discount">Promo Discount: </div>
+
+            <div class="amountSection">
+                <div>Subtotal: </div>
+                <div>Tax: </div>
+                <div>Total: </div>
+            </div>
+
             <button class="btn btn-success">Checkout</button>
         </div>
     </div>
