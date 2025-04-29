@@ -20,10 +20,10 @@ export async function loadProducts(){
         return;
     }
 
-    //document.getElementById("product-image").src = product.image;
+    document.getElementById("product-image").src = "https://placehold.co/300x300";
     document.getElementById("title").textContent = product.title;
     document.getElementById("company").textContent = product.company;
-    document.getElementById("price").textContent = product.price;
+    document.getElementById("price").textContent = product.price + "$";
     document.getElementById("categories").textContent = product.categories;
     document.getElementById("description").textContent = product.description;
 }
