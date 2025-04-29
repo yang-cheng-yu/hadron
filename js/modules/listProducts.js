@@ -88,8 +88,8 @@ function parseList(list, style) {
         const element = appendNewElement("div", "", parent);
         element.classList.add("list-item");
         element.addEventListener('click', () => {
-            localStorage.setItem("selectedProductId", product.id)
-            window.location.href = "product.html"
+            localStorage.setItem("selectedProductId", product.id);
+            window.location.href = "product.html";
         });
         
         const img = appendNewElement("img", "", element);
