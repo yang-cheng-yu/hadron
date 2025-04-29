@@ -2,6 +2,7 @@ import { initList } from "./modules/listProducts.js";
 import { setupNav } from "./modules/nav.js";
 import { fetchShows } from "./modules/dataRendering.js";
 import { initMostPopular } from "./modules/listMostPopular.js";
+import { loadProducts } from "./modules/productLoad.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
