@@ -15,7 +15,7 @@ function parseList(list) {
     const parent = document.getElementById("popular-apps");
     parent.innerHTML = '';
 
-    list.sort((a, b) => a.copiesSold - b.copiesSold)
+    list.sort((a, b) => b.copiesSold - a.copiesSold);
 
     for (let i = 0; i < 6; i++) {
         let product = list[i];
@@ -24,6 +24,7 @@ function parseList(list) {
         element.classList.add("app");
         element.addEventListener('click', () => {
             window.location.href = "/pages/product.html"
+            localStorage.setItem("selectedProductId", product.id);
         });
         
         const img = appendNewElement("img", "", element);
