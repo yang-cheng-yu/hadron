@@ -34,7 +34,8 @@
             "categories": ["Creative", "Paid"],
             "company": "Hadron",
             "image": "HPlus.png",
-            "price": "60"
+            "price": "60",
+            "copiesSold": "5"
         },
         {
             "id": 2,
@@ -43,7 +44,8 @@
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
             "image": "HEngine.png",
-            "price": "300"
+            "price": "300",
+            "copiesSold": "3"
         },
         {
             "id": 3,
@@ -52,7 +54,8 @@
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
             "image": "HEngine2D.png",
-            "price": "80"
+            "price": "80",
+            "copiesSold": "43"
         },
         {
             "id": 4,
@@ -61,7 +64,8 @@
             "categories": ["Producer", "Paid"],
             "company": "Hadron",
             "image": "HMovie.png",
-            "price": "60"
+            "price": "60",
+            "copiesSold": "123"
         },
         {
             "id": 5,
@@ -70,7 +74,8 @@
             "categories": ["Creative", "Free"],
             "company": "Hadron",
             "image": "HadronTML.png",
-            "price": "0"
+            "price": "0",
+            "copiesSold": "50000"
         },
         {
             "id": 6,
@@ -79,7 +84,8 @@
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
             "image": "Hava.png",
-            "price": "30"
+            "price": "30",
+            "copiesSold": "7"
         },
         {
             "id": 7,
@@ -88,7 +94,8 @@
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
             "image": "HSnake.png",
-            "price": "30"
+            "price": "30",
+            "copiesSold": "59"
         },
         {
             "id": 8,
@@ -97,7 +104,8 @@
             "categories": ["Producer", "Paid"],
             "company": "Hadron",
             "image": "HMixStudio.png",
-            "price": "60"
+            "price": "60",
+            "copiesSold": "98"
         }
     ]
 }

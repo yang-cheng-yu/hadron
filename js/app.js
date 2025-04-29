@@ -1,6 +1,7 @@
 import { initList } from "./modules/listProducts.js";
 import { setupNav } from "./modules/nav.js";
 import { fetchShows } from "./modules/dataRendering.js";
+import { initMostPopular } from "./modules/listMostPopular.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -8,6 +9,9 @@ function initApp() {
     setupNav();
 
     const page = document.querySelector("[data-page]").dataset.page;
+    if(page === "index") {
+        initMostPopular();
+    }
     if(page === "product-listing") {
         initList();
         document.getElementById("products").classList.add("selected");

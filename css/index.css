@@ -55,6 +55,10 @@ body{
     padding: 50px 150px;
 }
 
+.app {
+    display: inline-block;
+}
+
 .app img {
     border-radius: 50px;
 }
