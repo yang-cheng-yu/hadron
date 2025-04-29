@@ -22,6 +22,10 @@ function initApp() {
     if(page === "contact") {
         document.getElementById("contact").classList.add("selected");
     }
-    if(page === "dataRendering")
+    if(page === "dataRendering"){
         fetchShows();
+    }
+    if(page === "product") {
+        loadProducts();
+    }
 }
