@@ -1,6 +1,7 @@
 import { initList } from "./modules/listProducts.js";
 import { setupNav } from "./modules/nav.js";
 import { fetchShows } from "./modules/dataRendering.js";
+import { loadProducts } from "./modules/productLoad.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -18,6 +19,10 @@ function initApp() {
     if(page === "contact") {
         document.getElementById("contact").classList.add("selected");
     }
-    if(page === "dataRendering")
+    if(page === "dataRendering"){
         fetchShows();
+    }
+    if(page === "product") {
+        loadProducts();
+    }
 }
