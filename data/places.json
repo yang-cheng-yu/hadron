@@ -1,0 +1,76 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "hardware-company",
+            "description": "hardware",
+            "markerIcon": ""
+        },
+        {
+            "id": 2,
+            "name": "software-company",
+            "description": "software",
+            "markerIcon": ""
+        },
+        {
+            "id": 3,
+            "name": "store",
+            "description": "Physical store locations",
+            "markerIcon": ""
+        },
+        {
+            "id": 4,
+            "name": "mall",
+            "description": "Physical mall locations",
+            "markerIcon": ""
+        }
+    ],
+
+    "places": [
+        {
+            "id": 1,
+            "name": "Toshiba",
+            "description": "Toshiba Corporation Head Office, Tokyo",
+            "point": {
+                "coordinates": [35.65324266589194, 139.75761967133602]
+            },
+            "categoryId": 1
+        },
+        {
+            "id": 2,
+            "name": "Nintendo",
+            "description": "Nintendo Co., Ltd",
+            "point": {
+                "coordinates": [34.96995390183061, 135.7564126117696]
+            },
+            "categoryId": 2
+        },
+        {
+            "id": 3,
+            "name": "BIC Camera",
+            "description": "BIC Camera AKIBA store",
+            "point": {
+                "coordinates": [35.70272699132489, 139.77146758965026]
+            },
+            "categoryId": 3
+        },
+        {
+            "id": 4,
+            "name": "Nakano Broadway",
+            "description": "Nakano Broadway mall",
+            "point": {
+                "coordinates": [35.7094129240243, 139.66572748228435]
+            },
+            "categoryId": 4
+        },
+        {
+            "id": 5,
+            "name": "Yodobashi Camera",
+            "description": "Yodobashi Camera Shinjuku West Exit",
+            "point": {
+                "coordinates": [35.68991354177826, 139.69803661107264]
+            },
+            "categoryId": 3
+        }
+    ]
+}

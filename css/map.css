@@ -1,0 +1,45 @@
+@import url('general.css');
+
+.main {
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sidebar {
+    text-align: center;
+}
+
+.map {
+    height: calc(100vh - 80px);
+    width: 100%;
+}
+
+.place-name {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+}
+
+.hardware-company {
+    background-color: #DD5544;
+}
+
+.software-company {
+    background-color: #5544DD;
+}
+
+.store {
+    background-color: #55DD44;
+}
+
+.mall {
+    background-color: #DDCC33;
+}
+
+.service-provider {
+    background-color: #AA55DD;
+}
