@@ -27,16 +27,19 @@ async function loadLocations(map) {
     });
 }
 
-var customIcon = L.Icon.extend({
-    options: {
-        iconSize:     [40, 50],
-        iconAnchor:   [20, 50],
-        popupAnchor:  [0, -50]
-    }
-})
+function getCustomIcon(category) {
+    var customIcon = L.Icon.extend({
+        options: {
+            iconSize:     [40, 50],
+            iconAnchor:   [20, 50],
+            popupAnchor:  [0, -50]
+        }
+    });
+    return new customIcon({iconUrl: `/assets/markers/${category}.png`});
+}
 
 function addMarker(coordinates, contentString, map, category) {
-    const marker = L.marker(coordinates, {icon: new customIcon({iconUrl: `/assets/markers/${category}.png`})});
+    const marker = L.marker(coordinates, {icon: getCustomIcon(category)});
     marker.bindPopup(contentString);
     marker.addTo(map);
 }
