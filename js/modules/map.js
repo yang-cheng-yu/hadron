@@ -21,7 +21,9 @@ async function loadLocations(map) {
         const coordinates = place.point.coordinates;
 
         let category = categories.find(category => category.id === place.categoryId).name;
-        let content = `<div class='place-name ${category}'>${place.name}</div><div>${place.description}</div><div>${coordinates.join(', ')}</div>`;
+        let content = `<div class='place-name ${category}'>${place.name}</div>
+                        <div>${place.description}</div>
+                        <div>${coordinates.join(', ')}</div>`;
 
         addMarker(coordinates, content, map, category);
     });

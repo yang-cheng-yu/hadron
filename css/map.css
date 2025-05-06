@@ -3,11 +3,25 @@
 .main {
     padding-top: 80px;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 3fr 7fr;
 }
 
 .sidebar {
     text-align: center;
+}
+
+#search-places {
+    width: 80%;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px 0;
+    border: none;
+}
+
+.scroll {
+    overflow-y: scroll;
+    height: 80%;
+    width: 80%;
 }
 
 .map {
