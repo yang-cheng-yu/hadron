@@ -15,6 +15,7 @@
     background-color: #555566;
 
     font-size: 1.25em;
+    user-select: none;
 }
 
 #nav a {

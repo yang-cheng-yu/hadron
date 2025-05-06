@@ -1,4 +1,5 @@
 import { fetchData } from "./fetch.js";
+import { appendNewElement } from "./util.js";
 
 export function loadMap() {
     const map = L.map('map').setView([35.6895, 139.69171], 5);
@@ -17,7 +18,10 @@ async function loadLocations(map) {
 
     const categories = locations.categories;
 
+    const list = document.getElementById("place-list");
+
     locations.places.forEach(place => {
+        // Marker
         const coordinates = place.point.coordinates;
 
         let category = categories.find(category => category.id === place.categoryId).name;
@@ -26,6 +30,29 @@ async function loadLocations(map) {
                         <div>${coordinates.join(', ')}</div>`;
 
         addMarker(coordinates, content, map, category);
+
+        // List item
+        const item = appendNewElement("div", "", list);
+        item.classList.add("place");
+        item.addEventListener("click", () => [
+            
+        ]);
+
+        const imageHolder = appendNewElement("div", "", item);
+        item.classList.add("place-image");
+        const image = appendNewElement("img", "", imageHolder);
+        image.src = place.img;
+
+        const textHolder = appendNewElement("div", "", item);
+        item.classList.add("place-text");
+        const title = appendNewElement("div", place.name, textHolder);
+        item.classList.add("place-title");
+        const desc = appendNewElement("div", place.description, textHolder);
+        item.classList.add("place-desc");
+        const coords = appendNewElement("div", coordinates.join(', '), textHolder);
+        item.classList.add("place-desc");
+
+        
     });
 }
 
