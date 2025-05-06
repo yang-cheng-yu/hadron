@@ -17,26 +17,26 @@ async function loadLocations(map) {
 
     const categories = locations.categories;
 
-    L.icon({
-        iconUrl: '/assets/markers/hardware-company.png',
-    
-        iconSize:     [38, 95],
-        iconAnchor:   [22, 94],
-        popupAnchor:  [-3, -76]
-    });
-
     locations.places.forEach(place => {
         const coordinates = place.point.coordinates;
 
         let category = categories.find(category => category.id === place.categoryId).name;
         let content = `<div class='place-name ${category}'>${place.name}</div><div>${place.description}</div><div>${coordinates.join(', ')}</div>`;
 
-        addMarker(coordinates, content, map);
+        addMarker(coordinates, content, map, category);
     });
 }
 
-function addMarker(coordinates, contentString, map) {
-    const marker = L.marker(coordinates);
+var customIcon = L.Icon.extend({
+    options: {
+        iconSize:     [40, 50],
+        iconAnchor:   [20, 50],
+        popupAnchor:  [0, -50]
+    }
+})
+
+function addMarker(coordinates, contentString, map, category) {
+    const marker = L.marker(coordinates, {icon: new customIcon({iconUrl: `/assets/markers/${category}.png`})});
     marker.bindPopup(contentString);
     marker.addTo(map);
 }
