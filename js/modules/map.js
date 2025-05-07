@@ -39,19 +39,16 @@ async function loadLocations(map) {
         ]);
 
         const imageHolder = appendNewElement("div", "", item);
-        item.classList.add("place-image");
+        imageHolder.classList.add("place-image");
         const image = appendNewElement("img", "", imageHolder);
         image.src = place.img;
 
         const textHolder = appendNewElement("div", "", item);
-        item.classList.add("place-text");
+        textHolder.classList.add("place-text");
         const title = appendNewElement("div", place.name, textHolder);
-        item.classList.add("place-title");
+        title.classList.add("place-title");
         const desc = appendNewElement("div", place.description, textHolder);
-        item.classList.add("place-desc");
-        const coords = appendNewElement("div", coordinates.join(', '), textHolder);
-        item.classList.add("place-desc");
-
+        desc.classList.add("place-desc");
         
     });
 }

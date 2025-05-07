@@ -40,7 +40,8 @@
             "point": {
                 "coordinates": [35.65324266589194, 139.75761967133602]
             },
-            "categoryId": 1
+            "categoryId": 1,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Hamamatsucho_Building.jpg/250px-Hamamatsucho_Building.jpg"
         },
         {
             "id": 2,
@@ -49,7 +50,8 @@
             "point": {
                 "coordinates": [34.96995390183061, 135.7564126117696]
             },
-            "categoryId": 2
+            "categoryId": 2,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Headquarters_of_Nintendo_Co.%2C_Ltd.jpg/250px-Headquarters_of_Nintendo_Co.%2C_Ltd.jpg"
         },
         {
             "id": 3,
@@ -58,7 +60,8 @@
             "point": {
                 "coordinates": [35.70272699132489, 139.77146758965026]
             },
-            "categoryId": 3
+            "categoryId": 3,
+            "img": "https://rimage.gnst.jp/livejapan.com/public/img/spot/lj/00/62/lj0062253/lj0062253_648fd00967657_main.jpg?20240131153322&q=80&rw=616"
         },
         {
             "id": 4,
@@ -67,7 +70,8 @@
             "point": {
                 "coordinates": [35.7094129240243, 139.66572748228435]
             },
-            "categoryId": 4
+            "categoryId": 4,
+            "img": "https://www.datocms-assets.com/101439/1703552584-nakano-broadway.jpg?auto=format&fit=crop&h=800&w=1200"
         },
         {
             "id": 5,
@@ -76,7 +80,8 @@
             "point": {
                 "coordinates": [35.68991354177826, 139.69803661107264]
             },
-            "categoryId": 3
+            "categoryId": 3,
+            "img": "https://nb-img.imgix.net/images-stn-shinjuku/21-Yodobashi_Camera_Shinjuku1.jpg"
         },
         {
             "id": 6,
@@ -85,7 +90,8 @@
             "point": {
                 "coordinates": [35.67422795333984, 139.74009096547266]
             },
-            "categoryId": 5
+            "categoryId": 5,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Sanno_Park_Tower.jpg/250px-Sanno_Park_Tower.jpg"
         },
         {
             "id": 7,
@@ -94,7 +100,8 @@
             "point": {
                 "coordinates": [35.65875823614453, 139.76112609844995]
             },
-            "categoryId": 5
+            "categoryId": 5,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Portcity_Takeshiba.jpg/250px-Portcity_Takeshiba.jpg"
         }
     ]
 }
