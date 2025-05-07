@@ -1,5 +1,7 @@
 import { fetchData } from "./fetch.js";
-import { appendNewElement } from "./util.js";
+import { appendNewElement, arrayEquals } from "./util.js";
+
+const markers = [];
 
 export function loadMap() {
     const map = L.map('map').setView([35.6895, 139.69171], 5);
@@ -34,9 +36,12 @@ async function loadLocations(map) {
         // List item
         const item = appendNewElement("div", "", list);
         item.classList.add("place");
-        item.addEventListener("click", () => [
-            
-        ]);
+        item.addEventListener("click", () => {
+            map.setView(coordinates, 13);
+            const marker = findMarker(coordinates);
+            console.log(marker);
+            marker.openPopup();
+        });
 
         const imageHolder = appendNewElement("div", "", item);
         imageHolder.classList.add("place-image");
@@ -49,7 +54,6 @@ async function loadLocations(map) {
         title.classList.add("place-title");
         const desc = appendNewElement("div", place.description, textHolder);
         desc.classList.add("place-desc");
-        
     });
 }
 
@@ -68,4 +72,22 @@ function addMarker(coordinates, contentString, map, category) {
     const marker = L.marker(coordinates, {icon: getCustomIcon(category)});
     marker.bindPopup(contentString);
     marker.addTo(map);
+    
+    markers.push(marker);
+}
+
+function findMarker(coordinates) {
+
+    for (const marker of markers) {
+        const markerCoords = marker.getLatLng();
+        console.log(coordinates.equals([markerCoords.lat, markerCoords.lng]));
+        
+        if (coordinates.equals([markerCoords.lat, markerCoords.lng])) {
+            console.log(marker);
+            return marker;
+        }
+    }
+
+    console.log(nothing);
+    return null;
 }
