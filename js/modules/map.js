@@ -51,7 +51,7 @@ async function loadLocations(map) {
         const textHolder = appendNewElement("div", "", item);
         textHolder.classList.add("place-text");
         const title = appendNewElement("div", place.name, textHolder);
-        title.classList.add("place-title");
+        title.classList.add("place-title", category);
         const desc = appendNewElement("div", place.description, textHolder);
         desc.classList.add("place-desc");
     });
@@ -72,7 +72,7 @@ function addMarker(coordinates, contentString, map, category) {
     const marker = L.marker(coordinates, {icon: getCustomIcon(category)});
     marker.bindPopup(contentString);
     marker.addTo(map);
-    
+
     markers.push(marker);
 }
 

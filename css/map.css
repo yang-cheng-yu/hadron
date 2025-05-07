@@ -65,7 +65,10 @@
 }
 
 .place-title {
+    padding-left: 30px;
+    margin: 0 20px 10px 0;
     font-size: 2em;
+    border-radius: 20px;
 }
 
 .map {
