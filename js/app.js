@@ -30,6 +30,9 @@ function initApp() {
     if(page === "product") {
         loadProducts();
     }
+    if(page === "sign-up") {
+        
+    }
     if(page === "map") {
         loadMap();
     }
