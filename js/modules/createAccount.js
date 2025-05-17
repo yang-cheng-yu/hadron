@@ -6,6 +6,11 @@ export function createAccount(event){
         console.log(result);
         return;
     }
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    localStorage.setItem('username', username, 'email', email, "password", password);
 
 }
 
