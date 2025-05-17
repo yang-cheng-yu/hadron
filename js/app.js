@@ -4,6 +4,7 @@ import { fetchShows } from "./modules/dataRendering.js";
 import { initMostPopular } from "./modules/listMostPopular.js";
 import { loadProducts } from "./modules/productLoad.js";
 import { loadMap } from "./modules/map.js";
+import { createAccount } from "./modules/createAccount.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -30,10 +31,11 @@ function initApp() {
     if(page === "product") {
         loadProducts();
     }
-    if(page === "sign-up") {
-        
-    }
     if(page === "map") {
         loadMap();
+    }
+    if(page === "sign-up") {
+        const signUp = document.getElementById("form-sign-up");
+        signUp.addEventListener("submit", createAccount);
     }
 }
