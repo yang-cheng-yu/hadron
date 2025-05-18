@@ -23,7 +23,7 @@
 
 .scroll {
     overflow-y: scroll;
-    height: 75vh;
+    height: 70vh;
     width: 100%;
     background-color: var(--dark-page-darker);
 }
