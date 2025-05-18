@@ -52,7 +52,7 @@ function addAccounts(username, email, password) {
         errormsg.textContent = "Username or email already exists";
         return;
     }
-    accounts.push({ username, email, password });
+    accounts.push({ username, email, password, cart: [] });
     localStorage.setItem("accounts", JSON.stringify(accounts));
     const errormsg = document.getElementById("error-message");
     errormsg.textContent = "account added";
