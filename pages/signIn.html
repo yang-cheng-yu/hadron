@@ -23,27 +23,30 @@
             Welcome back
         </div>
         
-        <fieldset class="login-set">
-            <legend>We hope you had a good day!</legend>
+        <form id="form-sign-in" action="">
+            <fieldset class="login-set">
+                <legend>We hope you had a good day!</legend>
 
-            <div>
-                <label for="username">Username / Email: </label>
-                <input type="text" name="username" id="username">
-            </div>
+                <div id="error-message"></div>
+                <div>
+                    <label for="username">Username / Email: </label>
+                    <input type="text" name="username" id="username">
+                </div>
 
-            <div>
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password">
-            </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password">
+                </div>
 
-            <div>
-                <a href="#">Forgot my password</a>
-            </div>
+                <div>
+                    <a href="#">Forgot my password</a>
+                </div>
 
-            <div>
-                <input type="submit" value="Log In">
-            </div>
-        </fieldset>
+                <div>
+                    <input type="submit" value="Log In" id="logInButton">
+                </div>
+            </fieldset>
+        </form>
     </div>
 
     <script type="module" src="/js/app.js"></script>

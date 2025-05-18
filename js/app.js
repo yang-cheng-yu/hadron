@@ -5,6 +5,7 @@ import { initMostPopular } from "./modules/listMostPopular.js";
 import { loadProducts } from "./modules/productLoad.js";
 import { loadMap } from "./modules/map.js";
 import { createAccount } from "./modules/createAccount.js";
+import { login } from "./modules/login.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -37,5 +38,9 @@ function initApp() {
     if(page === "sign-up") {
         const signUp = document.getElementById("form-sign-up");
         signUp.addEventListener("submit", createAccount);
+    }
+    if(page === "sign-in") {
+        const signIn = document.getElementById("form-sign-in");
+        signIn.addEventListener("submit", login);
     }
 }
