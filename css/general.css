@@ -38,33 +38,3 @@ ul {
 button {
     color: white;
 }
-
-.toolbar {
-    padding: 20px;
-}
-
-.btn-set {
-    display: inline-flex;
-    border-radius: 10px;
-    height: 50px;
-    border: 1px solid var(--dark-page-medium);
-    font-size: 2em;
-}
-
-.btn-set button {
-    background: none;
-    outline: none;
-    border: none;
-    width: 50px;
-
-    border-right: 1px solid var(--dark-page-medium);
-}
-
-
-.btn-set button:hover {
-    background-color: var(--dark-page-light);
-}
-
-.btn-set .btn-selected {
-    background-color: var(--dark-page-medium);
-}
