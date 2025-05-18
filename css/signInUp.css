@@ -14,8 +14,12 @@
     transform: translateX(30%);
 }
 
-legend {
-    padding-bottom: 1em;
+#error-message{
+    font-size: 1.5em;
+    color: red;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 fieldset {
