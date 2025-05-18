@@ -34,6 +34,6 @@ async function checkLogin(username, password){
     return;
 }
 
-function sleep(ms) {
+export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
