@@ -92,3 +92,8 @@ body{
     width: 100%;
     object-fit: cover;
 }
+
+.info {
+    font-size: 2.5em;
+    padding: 10%;
+}
