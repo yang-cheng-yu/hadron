@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", initApp);
 
 function initApp() {
     setupNav();
+    const currentUser = localStorage.getItem('currentUser');
+    const cart = document.getElementById("cart");
+    if (!currentUser){
+        cart.href = "";
+    }
+    else{
+        cart.href = "/pages/signIn.html";
+    }
 
     const page = document.querySelector("[data-page]").dataset.page;
     if(page === "index") {

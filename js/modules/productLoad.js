@@ -4,7 +4,7 @@ export async function loadProducts(){
     const data = await fetchData("../data/products.json");
     const products = data.products;
 
-    const selectedProductId = localStorage.getItem("selectedProductId");
+    const selectedProductId = sessionStorage.getItem("selectedProductId");
 
     let product = null;
     const selectedID = parseInt(selectedProductId);
@@ -26,4 +26,5 @@ export async function loadProducts(){
     document.getElementById("price").textContent = product.price + "$";
     document.getElementById("categories").textContent = product.categories;
     document.getElementById("description").textContent = product.description;
+    document.getElementById("copies-sold").textContent = "Copies Sold: " + product.copiesSold;
 }
