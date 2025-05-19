@@ -21,7 +21,7 @@ export function setupNav() {
         </span>
         <span class="nav-item">
             <div class="icon-link">
-                <a href="/pages/cart.html">
+                <a id="cart" href="/pages/cart.html">
                     <i class="bi bi-cart-fill"></i>
                 </a>
             </div>

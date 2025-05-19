@@ -1,3 +1,4 @@
+
 export function createAccount(event){
     event.preventDefault();
 
@@ -23,25 +24,35 @@ function checkCredentials(){
     const password = document.getElementById("password").value;
     const confpassword = document.getElementById("confirm-password").value;
 
+    let isValid = true;
+    const messages = [];
+
     if (email === "" || username === "" || password === "" || confpassword === ""){
-        error.textContent = "Fill out all fields"
-        return false;
+        messages.push("Fill out all fields");
+        isValid = false;
     }
     if (regex.test(email) == false){
-        error.textContent = "Invalid email Form";
-        return false;
+        messages.push("Invalid email Form");
+        isValid = false;
     }
     const passregex = /.{8,}/;
     if (passregex.test(password) == false) {
-        error.textContent = "Password must be at least 8 characters";
-        return false;
+        messages.push("Password must be at least 8 characters");
+        isValid = false;
     }
     if (password != confpassword){
-        error.textContent = "Passwords do not match";
-        return false;
+        messages.push("Passwords do not match");
+        isValid = false;
     }
-    return true;
+
+        if (isValid) {
+        showAlert("User registered successfully", "success")
+    } else {
+        showAlert(`Error registering user: <ul><li>${messages.join('</li><li>')}</ul>`, "danger")
+    }
 }
+
+const alertPlaceholder = document.getElementById('alert-container');
 
 function addAccounts(username, email, password) {
     const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
@@ -56,4 +67,17 @@ function addAccounts(username, email, password) {
     localStorage.setItem("accounts", JSON.stringify(accounts));
     const errormsg = document.getElementById("error-message");
     errormsg.textContent = "account added";
+}
+
+function showAlert(message, type) {
+    alertPlaceholder.innerHTML = '';
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
+
+    alertPlaceholder.append(wrapper)
 }

@@ -27,4 +27,5 @@ export async function loadProducts(){
     document.getElementById("categories").textContent = product.categories;
     document.getElementById("description").textContent = product.description;
     document.getElementById("copies-sold").textContent = "Copies Sold: " + product.copiesSold;
+    document.getElementById("id").textContent = "Product ID: " + selectedID;
 }

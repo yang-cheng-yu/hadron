@@ -17,7 +17,7 @@ function initApp() {
         cart.href = "";
     }
     else{
-        cart.href = "/pages/signIn.html";
+        cart.href = "/pages/cart.html";
     }
 
     const page = document.querySelector("[data-page]").dataset.page;
