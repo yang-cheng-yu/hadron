@@ -46,7 +46,8 @@ function checkCredentials(){
     }
 
         if (isValid) {
-        showAlert("User registered successfully", "success")
+            addAccounts(username,email,password);
+            showAlert("User registered successfully", "success")
     } else {
         showAlert(`Error registering user: <ul><li>${messages.join('</li><li>')}</ul>`, "danger")
     }
