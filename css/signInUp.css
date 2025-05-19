@@ -7,11 +7,11 @@
 
 .title {
     display: inline-block;
-    font-size: 5em;
+    font-size: 4em;
 }
 
 .switch-page {
-    transform: translateX(30%);
+    font-size: 20px;
 }
 /*
 #error-message{
@@ -38,6 +38,11 @@ fieldset {
     border-radius: 100px;
     background-color: var(--dark-page-medium);
     transform: translateX(50%);
+    margin-bottom: 40px;
+}
+
+#createAccount{
+    font-size: 1.4em;
 }
 
 fieldset div {

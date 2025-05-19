@@ -17,31 +17,78 @@ export function createAccount(event){
 }
 
 function checkCredentials(){
-    const error = document.getElementById("error-message");
-    const regex = /[a-z0-9]+@[a-z]+\.[a-z]+$/;
+    const emailregex = /[a-z0-9]+@[a-z]+\.[a-z]+$/;
     const email = document.getElementById("email").value;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confpassword = document.getElementById("confirm-password").value;
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const phonenum = document.getElementById("phonenum").value;
+    const street = document.getElementById("street").value;
+    const aptNum = document.getElementById("aptNum").value;
+    const postCode = document.getElementById("postalCode").value;
+    const city = document.getElementById("city").value;
+    const province = document.getElementById("province").value;
+    const country = document.getElementById("country").value;
 
     let isValid = true;
     const messages = [];
 
-    if (email === "" || username === "" || password === "" || confpassword === ""){
+    if (email === "" || username === "" || password === "" || confpassword === "" ||
+        phonenum === "" || street === "" || aptNum === "" || postCode === "" ||
+        city === "" || province === "" || country === "")
+    {
         messages.push("Fill out all fields");
         isValid = false;
     }
-    if (regex.test(email) == false){
+    if (emailregex.test(email) == false){
         messages.push("Invalid email Form");
         isValid = false;
     }
-    const passregex = /.{8,}/;
+    const passregex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
     if (passregex.test(password) == false) {
-        messages.push("Password must be at least 8 characters");
+        messages.push("Password must be at least 8 characters, 1 Uppercase Character and 1 Number");
         isValid = false;
     }
     if (password != confpassword){
         messages.push("Passwords do not match");
+        isValid = false;
+    }
+    const phonenumRegex = /^\d{10}$/;
+    if (phonenumRegex.test(phonenum) == false){
+        messages.push("Phone Number must be 10 numbers");
+        isValid = false;
+    }
+    const lettersRegex = /^[A-Za-z]+$/;
+    if (lettersRegex.test(fname) == false){
+        messages.push("First name must be only letters");
+        isValid = false;
+    }
+    if (lettersRegex.test(lname) == false){
+        messages.push("Last name must be letters");
+        isValid = false;
+    }
+    const numberRegex = /\d+/;
+    if (numberRegex.test(aptNum) == false){
+        messages.push("apt Num must be a number");
+        isValid = false;
+    }
+    if (lettersRegex.test(city) == false){
+        messages.push("City must be letters");
+        isValid = false;
+    }
+    if (lettersRegex.test(country) == false){
+        messages.push("Country must be letters");
+        isValid = false;
+    }
+    const postCodeRegex = /[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d/;
+    if (postCodeRegex.test(postCode) == false){
+        messages.push("Postal Code bad Format");
+        isValid = false;
+    }
+    if (lettersRegex.test(province) == false){
+        messages.push("province must be letters");
         isValid = false;
     }
 
@@ -53,14 +100,33 @@ function checkCredentials(){
     }
 }
 
-function addAccounts(username, email, password) {
+function addAccounts(username, email, password, fname, lname, phonenum, street, aptNum, postCode, city, province, country) {
     const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
     const duplicate = accounts.find(acc => acc.email === email || acc.username === username);
     if (duplicate) {
         return;
     }
-    accounts.push({ username, email, password, cart: [] });
+    const newAccount = {
+        username: username,
+        email: email,
+        password: password,
+        name: {
+            firstName: fname,
+            lastName: lname
+        },
+        phone: phonenum,
+        location: {
+            street: street,
+            aptNum: aptNum,
+            postalCode: postCode,
+            city: city,
+            province: province,
+            country: country
+        },
+        cart: []
+    };
+    accounts.push(newAccount);
     localStorage.setItem("accounts", JSON.stringify(accounts));
 }
 

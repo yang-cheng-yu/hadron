@@ -30,32 +30,72 @@
 
         <form id="form-sign-up" action="">
             <fieldset class="create-set">
-                <legend>Create an account to get started</legend>
+                <legend>General Information</legend>
 
                 <div>
-                    <label for="username">Username: </label>
-                    <input type="text" name="username" id="username">
+                    <label for="fname">First Name: </label>
+                    <input type="text" name="fname" id="fname" placeholder="First Name">
+
+                    <label for="lname">Last Name: </label>
+                    <input type="text" name="lname" id="lname" placeholder="Last Name">
                 </div>
 
                 <div>
+                    <label for="username">Username: </label>
+                    <input type="text" name="username" id="username" placeholder="Username">
+
                     <label for="email">Email: </label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" placeholder="john@example.com"> 
                 </div>
 
                 <div>
                     <label for="password">Password: </label>
-                    <input type="password" name="password" id="password">
-                </div>
+                    <input type="password" name="password" id="password" placeholder="Password">
 
-                <div>
                     <label for="confirm-password">Confirm Password: </label>
-                    <input type="password" name="confirm-password" id="confirm-password">
+                    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password">
                 </div>
 
                 <div>
-                    <input type="submit" value="Create Account">
+                    <label for="phonenum">Phone Number: </label>
+                    <input type="tel" name="phonenum" id="phonenum" placeholder="1112223333">
                 </div>
+
+
             </fieldset>
+
+            <fieldset class="addressInfo">
+                <legend>Address Information</legend>
+
+                <div>
+                    <label for="street">Street: </label>
+                    <input type="text" id="street" name="street" placeholder="123 dummy street">
+
+                    <label for="aptNum">Apartment Number: </label>
+                    <input type="text" id="aptNum" name="aptNum" placeholder="Apt #">
+                </div>
+
+                <div>
+                    <label for="PCode">Postal Code: </label>
+                    <input type="text" id="postalCode" name="PCode" placeholder="A1A1A1">
+
+                    <label for="city">City: </label>
+                    <input type="text" id="city" name="city" placeholder="City">
+                </div>
+
+                <div>
+                    <label for="province">Province: </label>
+                    <input type="text" id="province" name="province" placeholder="Province">
+
+                    <label for="country">Country: </label>
+                    <input type="text" id="country" name="country" placeholder="Country">
+                </div>
+
+
+            </fieldset>
+                <div>
+                    <input type="submit" value="Create Account" id="createAccount">
+                </div>
         </form>
         
     </div>
