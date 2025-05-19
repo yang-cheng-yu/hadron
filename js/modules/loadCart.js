@@ -54,9 +54,44 @@ function parseProducts(products){
         image.setAttribute("width", "200");
         rowContent[0].appendChild(image);
         rowContent[1].textContent = product.title;
-        rowContent[2].textContent = product.quantity;
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.min = "1";
+        quantityInput.value = product.quantity;
+        quantityInput.classList.add("product-quantity");
+        quantityInput.dataset.productId = product.id;
+        rowContent[2].appendChild(quantityInput);
+
         rowContent[3].textContent = "$" + product.price;
 
         table.appendChild(newRow);
     });
+
+    document.querySelectorAll(".product-quantity").forEach(amount => {
+        amount.addEventListener("change", event => {
+            const newQuantity = parseInt(event.target.value);
+            const productId = parseInt(event.target.dataset.productId);
+
+            updateCartQuantity(productId, newQuantity);
+            loadCart();
+        });
+    });
+}
+
+function updateCartQuantity(productId, newQuantity) {
+    const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    const userIndex = accounts.findIndex(acc => acc.username === currentUser.username);
+    
+    const cart = accounts[userIndex].cart;
+
+    const filteredCart = cart.filter(id => id !== productId);
+
+    for (let i =0; i < newQuantity; i++) {
+        filteredCart.push(productId);
+    }
+
+    accounts[userIndex].cart = filteredCart;
+    localStorage.setItem("accounts", JSON.stringify(accounts));
 }

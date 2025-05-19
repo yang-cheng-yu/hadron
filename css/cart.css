@@ -15,8 +15,12 @@
 }
 
 .to-checkout-section {
-    padding-top: 15%;
+    align-self: start;
+    padding-top: 20%;
     line-height: 3em;
+    position: sticky;
+    top: 0;
+    font-size: 1.4em;
 }
 
 table{
