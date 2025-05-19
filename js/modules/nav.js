@@ -5,7 +5,7 @@ export function setupNav() {
         <span class="nav-item">
             
             <a href="/index.html">
-                Hadron
+                <h1 style="transform: scaleY(1.25)"><span style="color: #FF3355">H</span>adron</h1>
                 <!-- logo.png -->
             </a>
         </span>
