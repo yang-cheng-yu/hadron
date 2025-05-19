@@ -124,7 +124,7 @@ export function goToCheckout(){
     window.location.href = "/pages/checkout.html";
 }
 
-document.getElementById("addPromo").addEventListener("click", async () => {
+export async function handlePromo() {
     const inputPromo = document.getElementById("promo").value;
     const promo = await loadPromo(inputPromo);
 
@@ -140,4 +140,4 @@ document.getElementById("addPromo").addEventListener("click", async () => {
 
         totalprice.textContent = total = "Total: $" + (totalValue * (1 - (promo / 100)));
     }
-}) 
+}

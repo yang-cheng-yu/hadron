@@ -9,6 +9,7 @@ import { login } from "./modules/login.js";
 import { addToCart } from "./modules/addToCart.js";
 import { loadCart } from "./modules/loadCart.js";
 import { goToCheckout } from "./modules/loadCart.js";
+import { handlePromo } from "./modules/loadCart.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -60,5 +61,7 @@ function initApp() {
         loadCart();
         const chkBtn = document.getElementById("checkout");
         chkBtn.addEventListener("click", goToCheckout);
+        const promoBtn = document.getElementById("addPromo");
+        promoBtn.addEventListener("click", handlePromo);
     }
 }
