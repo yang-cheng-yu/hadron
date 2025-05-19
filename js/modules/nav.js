@@ -34,9 +34,5 @@ export function setupNav() {
         document.body.insertBefore(nav, document.body.firstChild)
     }
     
-    const search = document.getElementById("search-box");
-    search.addEventListener("input", (event) => {
-        const searchQuery = event.target.value;
-        
-    });
+
 }
