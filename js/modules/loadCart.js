@@ -1,4 +1,5 @@
 import { fetchData } from "./fetch.js";
+import { loadPromo } from "./loadPromo.js";
 
 export async function loadCart(){
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -14,6 +15,7 @@ export async function loadCart(){
 
     const finalProducts = await findProducts(cart);
     parseProducts(finalProducts);
+    showAmount(finalProducts);
 }
 
 async function findProducts(productIds) {
@@ -56,7 +58,7 @@ function parseProducts(products){
         rowContent[1].textContent = product.title;
         const quantityInput = document.createElement("input");
         quantityInput.type = "number";
-        quantityInput.min = "1";
+        quantityInput.min = "0";
         quantityInput.value = product.quantity;
         quantityInput.classList.add("product-quantity");
         quantityInput.dataset.productId = product.id;
@@ -88,10 +90,54 @@ function updateCartQuantity(productId, newQuantity) {
 
     const filteredCart = cart.filter(id => id !== productId);
 
-    for (let i =0; i < newQuantity; i++) {
+    for (let i =0; i < newQuantity; i++) { //this handles if 0 at the same time
         filteredCart.push(productId);
     }
 
     accounts[userIndex].cart = filteredCart;
     localStorage.setItem("accounts", JSON.stringify(accounts));
 }
+
+function showAmount(products){
+    let amount = 0;
+
+    products.forEach(product => {
+        const price = parseInt(product.price);
+        amount += price * product.quantity;
+    
+    });
+    const subtotal = document.getElementById("subtotal");
+    subtotal.textContent = "Subtotal: $" + amount;
+
+    const tax = amount * 0.15;
+    const taxDisplay = document.getElementById("tax");
+    taxDisplay.textContent = "Tax (15%): $" + tax;
+
+    const total = tax + amount;
+    const totalDisplay = document.getElementById("total-price");
+    totalDisplay.textContent = "Total: $" + total;
+
+    sessionStorage.setItem("total-price", total);
+}
+
+export function goToCheckout(){
+    window.location.href = "/pages/checkout.html";
+}
+
+document.getElementById("addPromo").addEventListener("click", async () => {
+    const inputPromo = document.getElementById("promo").value;
+    const promo = await loadPromo(inputPromo);
+
+    const discountDisplay = document.getElementById("discount");
+    if (isNaN(promo)){
+        discountDisplay.textContent = "Promo Discount: Not A Valid Code";
+    } else{
+        discountDisplay.textContent = "Promo Discount: " + promo + "%";
+
+        let total = document.getElementById("total-price").textContent;
+        const totalValue = parseFloat(total.split('$')[1]); //will return the string after $
+        const totalprice = document.getElementById("total-price");
+
+        totalprice.textContent = total = "Total: $" + (totalValue * (1 - (promo / 100)));
+    }
+}) 

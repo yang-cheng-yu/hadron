@@ -1,6 +1,7 @@
 import { fetchData } from "./fetch.js";
 import { showAlert } from "./createAccount.js";
 
+
 export async function addToCart(){
     const data = await fetchData("../data/products.json");
     const products = data.products;

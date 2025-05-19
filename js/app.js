@@ -8,6 +8,7 @@ import { createAccount } from "./modules/createAccount.js";
 import { login } from "./modules/login.js";
 import { addToCart } from "./modules/addToCart.js";
 import { loadCart } from "./modules/loadCart.js";
+import { goToCheckout } from "./modules/loadCart.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -57,5 +58,7 @@ function initApp() {
     }
     if(page === "cart") {
         loadCart();
+        const chkBtn = document.getElementById("checkout");
+        chkBtn.addEventListener("click", goToCheckout);
     }
 }
