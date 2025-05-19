@@ -17,12 +17,10 @@ export function createAccount(event){
 }
 
 function checkCredentials(){
-    const error = document.getElementById("error-message");
-    const regex = /[a-z0-9]+@[a-z]+\.[a-z]+$/;
-    const email = document.getElementById("email").value;
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const confpassword = document.getElementById("confirm-password").value;
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confpassword = document.getElementById("confirm-password").value.trim();
 
     let isValid = true;
     const messages = [];
@@ -31,18 +29,23 @@ function checkCredentials(){
         messages.push("Fill out all fields");
         isValid = false;
     }
-    if (regex.test(email) == false){
-        messages.push("Invalid email Form");
-        isValid = false;
-    }
-    const passregex = /.{8,}/;
-    if (passregex.test(password) == false) {
-        messages.push("Password must be at least 8 characters");
-        isValid = false;
-    }
-    if (password != confpassword){
-        messages.push("Passwords do not match");
-        isValid = false;
+    else {
+        if (!/^[a-zA-Z0-9\.]{1,16}$/.test(username.trim())) {
+            isValid = false;
+            messages.push("Invalid username - 16 chars max");
+        }
+        if (/^[a-z0-9\.]+@[a-z]+\.[a-z]{2,6}(\.[a-z]{2,6})?$/.test(email) == false){
+            isValid = false;
+            messages.push("Invalid email Form");
+        }
+        if (/^[a-zA-Z0-9.,\/';!@#$%^&*()-+=_\[\]"':;?><`~]{8,}$/.test(password) == false) {
+            isValid = false;
+            messages.push("Password must be at least 8 characters");
+        }
+        if (password != confpassword){
+            isValid = false;
+            messages.push("Passwords do not match");
+        }
     }
 
     if (isValid) {
