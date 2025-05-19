@@ -16,9 +16,6 @@ export function setupNav() {
                 <li class="nav-item list-item" id="contact"><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </span>
-        <span>
-            <input type="text" name="searchBox" id="search-box" placeholder="Search apps..">
-        </span>
         <span class="nav-item">
             <div class="icon-link">
                 <a id="cart" href="/pages/cart.html">
