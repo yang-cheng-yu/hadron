@@ -7,6 +7,7 @@ import { loadMap } from "./modules/map.js";
 import { createAccount } from "./modules/createAccount.js";
 import { login } from "./modules/login.js";
 import { addToCart } from "./modules/addToCart.js";
+import { loadCart } from "./modules/loadCart.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -53,5 +54,8 @@ function initApp() {
     if(page === "sign-in") {
         const signIn = document.getElementById("form-sign-in");
         signIn.addEventListener("submit", login);
+    }
+    if(page === "cart") {
+        loadCart();
     }
 }

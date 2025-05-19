@@ -19,3 +19,16 @@
     line-height: 3em;
 }
 
+table{
+    font-size: 24px;
+    margin: 30px;
+
+}
+
+th, td {
+    padding: 30px;
+}
+
+th {
+    background-color: var(--dark-page-darker);
+}
