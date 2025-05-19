@@ -72,14 +72,3 @@
     transform: scale(1.1);
     filter: brightness(0.2);
 }
-
-#search-box {
-    border-radius: 25px;
-    border: none;
-    padding: 5px 20px;
-    width: 100%;
-}
-
-#search-box:focus {
-    outline: none;
-}
