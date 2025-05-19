@@ -17,12 +17,7 @@ export function createAccount(event){
 }
 
 function checkCredentials(){
-<<<<<<< HEAD
     const emailregex = /[a-z0-9]+@[a-z]+\.[a-z]+$/;
-    const email = document.getElementById("email").value;
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const confpassword = document.getElementById("confirm-password").value;
     const fname = document.getElementById("fname").value;
     const lname = document.getElementById("lname").value;
     const phonenum = document.getElementById("phonenum").value;
@@ -32,12 +27,10 @@ function checkCredentials(){
     const city = document.getElementById("city").value;
     const province = document.getElementById("province").value;
     const country = document.getElementById("country").value;
-=======
     const email = document.getElementById("email").value.trim();
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
     const confpassword = document.getElementById("confirm-password").value.trim();
->>>>>>> e2851ae0667b8070f4f9d52014622ab75ca9028f
 
     let isValid = true;
     const messages = [];
@@ -49,20 +42,6 @@ function checkCredentials(){
         messages.push("Fill out all fields");
         isValid = false;
     }
-<<<<<<< HEAD
-    if (emailregex.test(email) == false){
-        messages.push("Invalid email Form");
-        isValid = false;
-    }
-    const passregex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-    if (passregex.test(password) == false) {
-        messages.push("Password must be at least 8 characters, 1 Uppercase Character and 1 Number");
-        isValid = false;
-    }
-    if (password != confpassword){
-        messages.push("Passwords do not match");
-        isValid = false;
-=======
     else {
         if (!/^[a-zA-Z0-9\.]{1,16}$/.test(username.trim())) {
             isValid = false;
@@ -80,7 +59,6 @@ function checkCredentials(){
             isValid = false;
             messages.push("Passwords do not match");
         }
->>>>>>> e2851ae0667b8070f4f9d52014622ab75ca9028f
     }
     const phonenumRegex = /^\d{10}$/;
     if (phonenumRegex.test(phonenum) == false){
