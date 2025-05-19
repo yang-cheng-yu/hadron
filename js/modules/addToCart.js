@@ -1,8 +1,10 @@
 import { fetchData } from "./fetch.js";
+import { showAlert } from "./createAccount.js";
 
 export async function addToCart(){
     const data = await fetchData("../data/products.json");
     const products = data.products;
+    
 
     let selectedProductId = sessionStorage.getItem("selectedProductId");
     console.log(selectedProductId)
@@ -40,5 +42,5 @@ export async function addToCart(){
     accounts[index].cart.push(productId);
 
     localStorage.setItem("accounts", JSON.stringify(accounts));
-
+    showAlert("Added to cart", "success", "message");
 }

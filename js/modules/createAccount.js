@@ -45,15 +45,13 @@ function checkCredentials(){
         isValid = false;
     }
 
-        if (isValid) {
-            addAccounts(username,email,password);
-            showAlert("User registered successfully", "success")
+    if (isValid) {
+        addAccounts(username,email,password);
+        showAlert("User registered successfully", "success", "alert-container");
     } else {
-        showAlert(`Error registering user: <ul><li>${messages.join('</li><li>')}</ul>`, "danger")
+        showAlert(`Error registering user: <ul><li>${messages.join('</li><li>')}</ul>`, "danger", "alert-container");
     }
 }
-
-const alertPlaceholder = document.getElementById('alert-container');
 
 function addAccounts(username, email, password) {
     const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
@@ -70,7 +68,8 @@ function addAccounts(username, email, password) {
     errormsg.textContent = "account added";
 }
 
-function showAlert(message, type) {
+export function showAlert(message, type, alertPlaceholderId) {
+    const alertPlaceholder = document.getElementById(alertPlaceholderId);
     alertPlaceholder.innerHTML = '';
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
