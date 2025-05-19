@@ -6,6 +6,7 @@ import { loadProducts } from "./modules/productLoad.js";
 import { loadMap } from "./modules/map.js";
 import { createAccount } from "./modules/createAccount.js";
 import { login } from "./modules/login.js";
+import { addToCart } from "./modules/addToCart.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -39,6 +40,8 @@ function initApp() {
     }
     if(page === "product") {
         loadProducts();
+        const addCart = document.getElementById("add");
+        addCart.addEventListener("click", addToCart);
     }
     if(page === "map") {
         loadMap();
