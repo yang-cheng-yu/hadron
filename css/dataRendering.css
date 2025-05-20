@@ -1,6 +1,6 @@
 body{
-    background-color: var(--dark-page-dark);
-    color: white;
+    background-color: var(--background-color);
+    color: var(--font-color);
     line-height: 1.6;
 }
 
