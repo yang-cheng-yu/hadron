@@ -11,6 +11,8 @@ import { loadCart } from "./modules/loadCart.js";
 import { goToCheckout } from "./modules/loadCart.js";
 import { handlePromo } from "./modules/loadCart.js";
 import { sendInquiry } from "./modules/sendInquiry.js";
+import { loadCheckout } from "./modules/loadCheckout.js";
+import { confirmPurchase } from "./modules/loadCheckout.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -68,5 +70,10 @@ function initApp() {
     if(page === "contact") {
         const sndBtn = document.getElementById("sendComment");
         sndBtn.addEventListener("click", sendInquiry);
+    }
+    if(page === "checkout"){
+        loadCheckout();
+        const confBtn = document.getElementById("confirmBtn");
+        confBtn.addEventListener("click", confirmPurchase);
     }
 }
