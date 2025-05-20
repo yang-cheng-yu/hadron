@@ -1,6 +1,9 @@
 import { fetchData } from "./fetch.js";
 import { loadPromo } from "./loadPromo.js";
 
+let productTotal = 0;
+let promo = 0;
+
 export async function loadCart(){
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const currentUsername = currentUser.username;
@@ -16,6 +19,15 @@ export async function loadCart(){
     const finalProducts = await findProducts(cart);
     parseProducts(finalProducts);
     showAmount(finalProducts);
+}
+
+function updateProductTotal(products) {
+    productTotal = 0;
+
+    products.forEach(product => {
+        const price = parseInt(product.price);
+        productTotal += price * product.quantity;
+    });
 }
 
 async function findProducts(productIds) {
@@ -64,7 +76,7 @@ function parseProducts(products){
         quantityInput.dataset.productId = product.id;
         rowContent[2].appendChild(quantityInput);
 
-        rowContent[3].textContent = "$" + product.price;
+        rowContent[3].textContent = "$" + Number(product.price).toFixed(2);
 
         table.appendChild(newRow);
     });
@@ -98,26 +110,11 @@ function updateCartQuantity(productId, newQuantity) {
     localStorage.setItem("accounts", JSON.stringify(accounts));
 }
 
+
+
 function showAmount(products){
-    let amount = 0;
-
-    products.forEach(product => {
-        const price = parseInt(product.price);
-        amount += price * product.quantity;
-    
-    });
-    const subtotal = document.getElementById("subtotal");
-    subtotal.textContent = "Subtotal: $" + amount;
-
-    const tax = amount * 0.15;
-    const taxDisplay = document.getElementById("tax");
-    taxDisplay.textContent = "Tax (15%): $" + tax;
-
-    const total = tax + amount;
-    const totalDisplay = document.getElementById("total-price");
-    totalDisplay.textContent = "Total: $" + total;
-
-    sessionStorage.setItem("total-price", total);
+    updateProductTotal(products);
+    updateValues();
 }
 
 export function goToCheckout(){
@@ -126,18 +123,29 @@ export function goToCheckout(){
 
 export async function handlePromo() {
     const inputPromo = document.getElementById("promo").value;
-    const promo = await loadPromo(inputPromo);
+    promo = await loadPromo(inputPromo);
 
     const discountDisplay = document.getElementById("discount");
     if (isNaN(promo)){
         discountDisplay.textContent = "Promo Discount: Not A Valid Code";
     } else{
         discountDisplay.textContent = "Promo Discount: " + promo + "%";
-
-        let total = document.getElementById("total-price").textContent;
-        const totalValue = parseFloat(total.split('$')[1]); //will return the string after $
-        const totalprice = document.getElementById("total-price");
-
-        totalprice.textContent = total = "Total: $" + (totalValue * (1 - (promo / 100)));
+        updateValues();
     }
+}
+
+function updateValues() {
+    const subtotalDisplay = document.getElementById("subtotal");
+    let subtotal = productTotal - promo * productTotal / 100;
+    subtotalDisplay.textContent = "Subtotal: $" + subtotal.toFixed(2);
+
+    let tax = subtotal * 0.15;
+    const taxDisplay = document.getElementById("tax");
+    taxDisplay.textContent = "Tax (15%): $" + tax.toFixed(2);
+
+    let total = tax + subtotal;
+    const totalDisplay = document.getElementById("total-price");
+    totalDisplay.textContent = "Total: $" + total.toFixed(2);
+
+    sessionStorage.setItem("total-price", total);
 }
