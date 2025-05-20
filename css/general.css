@@ -16,11 +16,19 @@
     --tint-light: #FF779933;
 }
 
+:root[data-theme="dark"]{
+    --background-color: var(--dark-page-dark);
+    --font-color: var(--light-page-medium);
+}
+
+:root[data-theme="light"]{
+    --background-color: var(--light-page-medium);
+    --font-color: var(--light-page-darker);
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark-page-dark);
-    color: white;
 }
 
 .first-element{

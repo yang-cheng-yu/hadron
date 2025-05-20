@@ -27,6 +27,8 @@ export function setupNav() {
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
+            <button class="theme-switch" onclick="document.documentElement.setAttribute('data-theme', 'dark');">Dark</button>
+            <button class="theme-switch" onclick="document.documentElement.setAttribute('data-theme', 'light');">Light</button>
         </div>
     `;
 

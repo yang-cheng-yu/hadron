@@ -25,7 +25,7 @@
     overflow-y: scroll;
     height: 70vh;
     width: 100%;
-    background-color: var(--dark-page-darker);
+    background-color: var(--background-color);
 }
 
 .place {
@@ -36,7 +36,7 @@
 }
 
 .place:hover {
-    background-color: var(--dark-page-light);
+    background-color: var(--font-color);
 }
 
 .place-image {

@@ -1,8 +1,8 @@
 @import url('general.css');
 
 body{
-    background-color: var(--dark-page-dark);
-    color: var(--light-page-medium);
+    background-color: var(--background-color);;
+    color: var(--font-color);;
     line-height: 1.6;
 }
 

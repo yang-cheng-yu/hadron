@@ -5,6 +5,12 @@
     padding-top: 8vw;
 }
 
+body{
+    background-color: var(--background-color);
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
 .title {
     display: inline-block;
     font-size: 4em;

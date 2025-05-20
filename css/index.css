@@ -1,19 +1,19 @@
 @import url('general.css');
 
 body{
-    background-color: var(--dark-page-dark);
-    color: white;
+    background-color: var(--background-color);
+    color: var(--font-color);
     line-height: 1.6;
 }
 
 .header{
     text-align: center;
-    background-color: var(--dark-page-darker);
+    background-color: var(--background-color);
 }
 
 .introText{
     text-align: center;
-    background-color: var(--dark-page-darker);
+    background-color: var(--background-color);
     padding: 120px 70px;
     font-size: 25px;
     line-height: 2;
