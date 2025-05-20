@@ -8,8 +8,14 @@ export function loadDataPage() {
 }
 
 function loadButtons() {
+    const back = document.getElementById("btn-back");
+
     const anime = document.getElementById("btn-anime");
     const schale = document.getElementById("btn-schale");
+
+    back.addEventListener('click', () => {
+        showElementGroup("selection");
+    });
 
     anime.addEventListener('click', () => {
         showElementGroup("anime");

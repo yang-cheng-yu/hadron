@@ -6,12 +6,36 @@ body{
 
 
 
+.btn-back {
+    position: fixed;
+    top: 100px;
+    user-select: none;
+    z-index: 1000;
+}
+
+.btn-back button {
+    padding: 30px;
+    border: none;
+    background-color: var(--dark-page-medium);
+}
+
+.btn-back button:active {
+    background-color: var(--dark-page-light);
+}
+
+.btn-back button:hover {
+    background-color: var(--dark-page-light);
+}
+
+
+
 .selection {
     width: 100vw;
     height: calc(100vh - 80px);
     display: flex;
     justify-content: space-around;
     align-items: center;
+    user-select: none;
 }
 
 .selection button {
