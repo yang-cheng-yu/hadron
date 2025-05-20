@@ -1,5 +1,11 @@
 import { showAlert } from "./createAccount.js";
 
+/**
+ * Handles the login form submission.
+ * triggers login validation.
+ * 
+ * @export
+ */
 export function login(){
     event.preventDefault();
 
@@ -9,6 +15,17 @@ export function login(){
     checkLogin(useremail, password);
 }
 
+/**
+ * Validates the provided login credentials
+ * and checks if that is a valid account.
+ * If login is successful, 
+ * sets the current user in localStorage and redirects to the homepage.
+ * Otherwise, displays an error alert.
+ * 
+ * @async
+ * @param {string} username - The email or username
+ * @param {string} password - The password
+ */
 async function checkLogin(username, password){
     const errormsg = document.getElementById("error-message");
     errormsg.textContent = "";
@@ -35,6 +52,12 @@ async function checkLogin(username, password){
     }
 }
 
+/**
+ * Delays execution for a specified number of milliseconds.
+ * 
+ * @export
+ * @param {number} ms - The number of milliseconds to wait
+ */
 export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

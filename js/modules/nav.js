@@ -1,3 +1,8 @@
+/**
+ * Dynamically creates and inserts the nav bar into the page.
+ * 
+ * @export
+ */
 export function setupNav() {
     const nav = document.createElement("nav");
     nav.id = "nav";

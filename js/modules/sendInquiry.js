@@ -1,10 +1,23 @@
 import { showAlert } from "./createAccount.js";
 
+/**
+ * Handles the form submission for user inquiries.
+ * 
+ * @export
+ * @param {Event} event - form submission event
+ */
 export function sendInquiry(event){
     event.preventDefault();
     checkCredentials();
 }
 
+/**
+ * Form validation for input fields.
+ * If valid, stores the inquiry in local storage
+ * and shows a success alert.
+ * Otherwise, displays an error alert with reasons.
+ * 
+ */
 function checkCredentials(){
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value;
@@ -37,6 +50,13 @@ function checkCredentials(){
     }
 }
 
+/**
+ * Saves valid inquiry into localStorage.
+ * 
+ * @param {string} name - user's name
+ * @param {string} email - user's email
+ * @param {string} message - user's message
+ */
 function storeInquiry(name, email, message){
     const comments = JSON.parse(localStorage.getItem("comments")) || [];
 
