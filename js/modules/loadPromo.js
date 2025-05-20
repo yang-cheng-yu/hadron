@@ -1,3 +1,11 @@
+/**
+ * Loads promo discount from local JSON
+ * file based on the given code.
+ * 
+ * @async
+ * @export
+ * @param {string} code - The promo code
+ */
 export async function loadPromo(code){
     const response = await fetch("/data/promo.json");
     const data = await response.json();

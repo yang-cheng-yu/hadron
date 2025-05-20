@@ -3,6 +3,12 @@ import { appendNewElement, arrayEquals } from "./util.js";
 
 const markers = [];
 
+/**
+ * Initializes and renders the Leaflet map on the page.
+ * Loads OpenStreetMap tiles and place markers with popup info.
+ * 
+ * @export
+ */
 export function loadMap() {
     const map = L.map('map').setView([35.6895, 139.69171], 5);
 
@@ -14,6 +20,14 @@ export function loadMap() {
     loadLocations(map);
 }
 
+/**
+ * Loads place data from a JSON file and 
+ * adds them as markers and list items
+ * 
+ * @async
+ * @param {L.Map} map - The Leaflet map instance to add markers to
+ * @returns {Promise<void>}
+ */
 async function loadLocations(map) {
     const placesUri = "/data/places.json";
     const locations = await fetchData(placesUri);
@@ -57,6 +71,12 @@ async function loadLocations(map) {
     });
 }
 
+/**
+ * Creates a custom Leaflet icon using the given category.
+ * Icon file should match category name
+ * 
+ * @param {string} category - The category name for icon
+ */
 function getCustomIcon(category) {
     var customIcon = L.Icon.extend({
         options: {
@@ -68,6 +88,15 @@ function getCustomIcon(category) {
     return new customIcon({iconUrl: `/assets/markers/${category}.png`});
 }
 
+/**
+ * Adds a marker to the map with a popup 
+ * and stores it in the markers array.
+ * 
+ * @param {number[]} coordinates - coordinates for the marker
+ * @param {string} contentString - HTML content for the marker's popup
+ * @param {L.Map} map - Leaflet map instance
+ * @param {string} category - The category used to determine the marker icon
+ */
 function addMarker(coordinates, contentString, map, category) {
     const marker = L.marker(coordinates, {icon: getCustomIcon(category)});
     marker.bindPopup(contentString);
@@ -76,6 +105,13 @@ function addMarker(coordinates, contentString, map, category) {
     markers.push(marker);
 }
 
+/**
+ * Finds a marker in the markers
+ * array that matches the given coordinates.
+ * 
+ * @param {number[]} coordinates - coordinates of the target marker
+ * @returns {L.Marker|null} The matching marker, or null if not found
+ */
 function findMarker(coordinates) {
 
     for (const marker of markers) {

@@ -1,5 +1,14 @@
 import { fetchData } from "./fetch.js";
 
+/**
+ * Loads and displays detailed information about the selected product on the product page.
+ * Retrieves the product ID from sessionStorage, 
+ * matches it with the product list from the JSON file,
+ * and fills in HTML elements with the product's data.
+ * 
+ * @export
+ * @async
+ */
 export async function loadProducts(){
     const data = await fetchData("../data/products.json");
     const products = data.products;
