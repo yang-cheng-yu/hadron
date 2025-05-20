@@ -1,6 +1,6 @@
 import { initList } from "./modules/listProducts.js";
 import { setupNav } from "./modules/nav.js";
-import { fetchShows } from "./modules/dataRendering.js";
+import { loadDataPage } from "./modules/dataRendering.js";
 import { initMostPopular } from "./modules/listMostPopular.js";
 import { loadProducts } from "./modules/productLoad.js";
 import { loadMap } from "./modules/map.js";
@@ -42,7 +42,7 @@ function initApp() {
         document.getElementById("contact").classList.add("selected");
     }
     if(page === "dataRendering"){
-        fetchShows();
+        loadDataPage();
     }
     if(page === "product") {
         loadProducts();

@@ -13,33 +13,44 @@
 
 </head>
 <body>
+    <div class="first-element">
+        <div class="selection fading-element show">
+            <button id="btn-anime">
+                Anime
+            </button>
+            <button id="btn-schale">
+                Schale
+            </button>
+        </div>
 
-    <div>
-        
+        <div class="anime fading-element">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Episodes</th>
+                        <th>Genre</th>
+                        <th>Source</th>
+                        <th>Status</th>
+                        <th>Aired</th>
+                        <th>Score</th>
+                        <th>Rank</th>
+                        <th>Image</th>
+                    </tr>
+            </thead>
+                <tbody id="table-shows">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="schale fading-element">
+
+        </div>
     </div>
-
-    <div class="first-element anime">
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Episodes</th>
-                    <th>Genre</th>
-                    <th>Source</th>
-                    <th>Status</th>
-                    <th>Aired</th>
-                    <th>Score</th>
-                    <th>Rank</th>
-                    <th>Image</th>
-                </tr>
-           </thead>
-            <tbody id="table-shows">
-
-            </tbody>
-        </table>
-    </div>
+    
 
     <script type="module" src="/js/app.js"></script>
 </body>

@@ -4,6 +4,34 @@ body{
     line-height: 1.6;
 }
 
+
+
+.selection {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.selection button {
+    height: 20vw;
+    width: 20vw;
+    font-size: 2em;
+    border: none;
+    background-color: var(--dark-page-medium);
+}
+
+.selection button:active {
+    background-color: var(--dark-page-light);
+}
+
+.selection button:hover {
+    background-color: var(--dark-page-light);
+}
+
+
+
 .anime {
     display: flex;
     justify-content: center;
@@ -16,10 +44,6 @@ body{
     overflow-y: scroll;
     overflow-x: hidden;
     font-size: 1.25em;
-}
-
-.hide {
-    display: none;
 }
 
 .anime tbody tr td {
@@ -36,4 +60,25 @@ body{
 
 .anime tbody tr:hover {
     background-color: var(--dark-page-medium);
+}
+
+
+
+.schale {
+
+}
+
+.fading-element {
+    transition: 0.3s ease-in-out;
+    visibility: hidden;
+    position: fixed;
+    transform: translateY(-10vh);
+    opacity: 0;
+}
+
+.show {
+    visibility: visible;
+    position: static;
+    transform: translateY(0);
+    opacity: 1;
 }

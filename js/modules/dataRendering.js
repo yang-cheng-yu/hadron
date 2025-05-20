@@ -2,7 +2,40 @@ function initApp() {
     fetchShows()
 }
 
-export async function fetchShows(){
+export function loadDataPage() {
+    loadButtons();
+    showElementGroup("selection");
+}
+
+function loadButtons() {
+    const anime = document.getElementById("btn-anime");
+    const schale = document.getElementById("btn-schale");
+
+    anime.addEventListener('click', () => {
+        showElementGroup("anime");
+        fetchShows();
+    });
+    schale.addEventListener('click', () => {
+        showElementGroup("schale");
+    });
+}
+
+function showElementGroup(group) {
+    const elementGroup = document.querySelector(`.${group}`);
+    if (!elementGroup) {
+        console.log("group not found");
+        return;
+    }
+
+    const fadingElements = document.querySelectorAll(".fading-element");
+
+    fadingElements.forEach(element => {
+        element.classList.remove('show');
+    })
+    elementGroup.classList.add('show');
+}
+
+async function fetchShows(){
     console.log("Fetching Shows...");
     let uri = "https://api.jikan.moe/v4/anime";
 
