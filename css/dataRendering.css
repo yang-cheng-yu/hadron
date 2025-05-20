@@ -4,21 +4,36 @@ body{
     line-height: 1.6;
 }
 
-table{
-    width: 100%;
-    font-size: 24px;
-    margin: 30px;
+.anime {
+    display: flex;
+    justify-content: center;
 }
 
-tbody tr:nth-child(even) {
+.anime table {
+    display: block;
+    width: 80vw;
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 1.25em;
+}
+
+.hide {
+    display: none;
+}
+
+.anime tbody tr td {
+    padding: 0 20px;
+}
+
+.anime tbody tr:nth-child(even) {
     background-color: var(--dark-page-darker);
 }
 
-
-tbody tr:nth-child(even):hover {
+.anime tbody tr:nth-child(even):hover {
     background-color: var(--dark-page-medium);
 }
 
-tbody tr:hover {
+.anime tbody tr:hover {
     background-color: var(--dark-page-medium);
 }

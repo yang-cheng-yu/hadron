@@ -128,10 +128,11 @@ export async function handlePromo() {
     const discountDisplay = document.getElementById("discount");
     if (isNaN(promo)){
         discountDisplay.textContent = "Promo Discount: Not A Valid Code";
+        promo = 0;
     } else{
         discountDisplay.textContent = "Promo Discount: " + promo + "%";
-        updateValues();
     }
+    updateValues();
 }
 
 function updateValues() {
