@@ -28,6 +28,14 @@
     padding: 10px;
 }
 
+.logo {
+    border: 3px solid var(--tint-light);
+    border-radius: 15px;
+    padding: 0 15px;
+    background-color: var(--tint-normal);
+    transform: scaleY(1.25);
+}
+
 #nav .list-item {
     padding: 0 50px;
     position: relative;
