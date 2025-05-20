@@ -4,6 +4,14 @@ import { loadPromo } from "./loadPromo.js";
 let productTotal = 0;
 let promo = 0;
 
+/**
+ * Loads the current user's cart and
+ * calculates totals
+ * 
+ * @export
+ * @async
+ * @returns {Promise<void>}
+ */
 export async function loadCart(){
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const currentUsername = currentUser.username;
@@ -21,6 +29,12 @@ export async function loadCart(){
     showAmount(finalProducts);
 }
 
+/**
+ * Calculates and updates the product
+ * total price before discounts.
+ * 
+ * @param {Array<Object>} products - List of products with quantities
+ */
 function updateProductTotal(products) {
     productTotal = 0;
 
@@ -30,6 +44,13 @@ function updateProductTotal(products) {
     });
 }
 
+/**
+ * Finds product data from the list of IDs in the user's cart
+ * and merges quantities for duplicates.
+ * 
+ * @async
+ * @param {Array<number>} productIds - List of product IDs from the cart
+ */
 async function findProducts(productIds) {
     const data = await fetchData("/data/products.json");
     const products = data.products;
@@ -49,6 +70,12 @@ async function findProducts(productIds) {
     return Object.values(allProducts);
 }
 
+/**
+ * Renders the cart product table in the DOM.
+ * Adds event listeners to quantity input fields for live updates.
+ * 
+ * @param {Array<Object>} products - List of products to display with quantity
+ */
 function parseProducts(products){
     const table = document.getElementById("table-cart");
     table.innerHTML = "";
@@ -92,6 +119,13 @@ function parseProducts(products){
     });
 }
 
+/**
+ * Updates the cart in localStorage by 
+ * setting the quantity of a specific product.
+ * 
+ * @param {number} productId - The ID of the product to update
+ * @param {number} newQuantity - The new quantity to set
+ */
 function updateCartQuantity(productId, newQuantity) {
     const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -111,16 +145,37 @@ function updateCartQuantity(productId, newQuantity) {
 }
 
 
-
+/**
+ * Updates the cart subtotal, 
+ * applies promo discount, 
+ * calculates tax, 
+ * and updates display.
+ * 
+ * @param {Array<Object>} products - List of products with quantity
+ */
 function showAmount(products){
     updateProductTotal(products);
     updateValues();
 }
 
+/**
+ * Changes window to checkout.html
+ * 
+ * @export
+ */
 export function goToCheckout(){
     window.location.href = "/pages/checkout.html";
 }
 
+/**
+ * Handles promo code input, 
+ * validates it, 
+ * applies the discount, 
+ * and updates the UI.
+ * 
+ * @export
+ * @async
+ */
 export async function handlePromo() {
     const inputPromo = document.getElementById("promo").value;
     promo = await loadPromo(inputPromo);
@@ -135,6 +190,12 @@ export async function handlePromo() {
     updateValues();
 }
 
+/**
+ * Recalculates subtotal, tax, 
+ * and total based on current cart 
+ * and promo discount.
+ * Updates DOM and saves total in sessionStorage.
+ */
 function updateValues() {
     const subtotalDisplay = document.getElementById("subtotal");
     let subtotal = productTotal - promo * productTotal / 100;

@@ -2,11 +2,25 @@ function initApp() {
     fetchShows()
 }
 
+
+/**
+ * Function that loads data page
+ * by attaching event listeners to buttons and
+ * displaying selection UI
+ * 
+ * @export
+ */
 export function loadDataPage() {
     loadButtons();
     showElementGroup("selection");
 }
 
+
+/**
+ * Attaches click event listeners to buttons.
+ * Handles the logic for showing the correct UI 
+ * group and fetching data when needed.
+ */
 function loadButtons() {
     const back = document.getElementById("btn-back");
 
@@ -26,6 +40,12 @@ function loadButtons() {
     });
 }
 
+/**
+ * Displays a specific UI group and hides
+ * others
+ * 
+ * @param {string} group - The class name of the group to display
+ */
 function showElementGroup(group) {
     const elementGroup = document.querySelector(`.${group}`);
     if (!elementGroup) {
@@ -41,6 +61,13 @@ function showElementGroup(group) {
     elementGroup.classList.add('show');
 }
 
+
+/**
+ * Fetches anime show data from the 
+ * API and calls the parser.
+ * 
+ * @async
+ */
 async function fetchShows(){
     console.log("Fetching Shows...");
     let uri = "https://api.jikan.moe/v4/anime";
@@ -50,6 +77,13 @@ async function fetchShows(){
     parseShows(data.data);
 }
 
+
+/**
+ * Fetches JSON data from the provided URI with error handling.
+ * 
+ * @async
+ * @param {string} resourceUri - The URL to fetch data from
+ */
 async function fetchData(resourceUri){
     try {
         const response = await fetch(resourceUri);
@@ -66,6 +100,12 @@ async function fetchData(resourceUri){
     }
 }
 
+
+/**
+ * Populates table with anime show data.
+ * 
+ * @param {Array<Object>} shows - An array of anime show objects to display in the table
+ */
 function parseShows(shows) {
     const table = document.getElementById("table-shows");
     table.innerHTML = "";

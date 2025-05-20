@@ -2,6 +2,17 @@ import { fetchData } from "./fetch.js";
 import { showAlert } from "./createAccount.js";
 
 
+/**
+ * function for adding products to cart
+ * fetches all products from json file
+ * takes selectedProductId from session storage
+ * and matches it with one of the products from the
+ * json file.
+ * Puts the product id of that product into carts
+ * array of the current logged in account
+ * 
+ * @export
+ */
 export async function addToCart(){
     const data = await fetchData("../data/products.json");
     const products = data.products;

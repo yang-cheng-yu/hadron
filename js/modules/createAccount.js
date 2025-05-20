@@ -1,4 +1,11 @@
-
+/**
+ * Handles account creation form submission.
+ * Prevents default form action, validates input, stores user data,
+ * and adds account to storage.
+ * 
+ * @param {Event} event - The form submission event
+ * @export
+ */
 export function createAccount(event){
     event.preventDefault();
 
@@ -16,6 +23,12 @@ export function createAccount(event){
     addAccounts(username,email,password);
 }
 
+/**
+ * Function used for form validation.
+ * Ensures all the fields inputs are well formatted
+ * 
+ * @returns {void}
+ */
 function checkCredentials(){
     const emailregex = /[a-z0-9]+@[a-z]+\.[a-z]+$/;
     const fname = document.getElementById("fname").value;
@@ -104,6 +117,24 @@ function checkCredentials(){
     }
 }
 
+/**
+ * adds the information of the account into
+ * local storage array of accounts
+ * 
+ * @param {string} username - The username of the account
+ * @param {string} email - The email of the account
+ * @param {string} password - The password of the account
+ * @param {string} fname - The user's first name
+ * @param {string} lname - The user's last name
+ * @param {string} phonenum - The user's phone number
+ * @param {string} street - Street address of the user
+ * @param {string} aptNum - Apartment number (optional)
+ * @param {string} postCode - Postal code
+ * @param {string} city - City of residence
+ * @param {string} province - Province of residence
+ * @param {string} country - Country of residence
+ * @returns {void}
+ */
 function addAccounts(username, email, password, fname, lname, phonenum, street, aptNum, postCode, city, province, country) {
     const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
@@ -134,6 +165,18 @@ function addAccounts(username, email, password, fname, lname, phonenum, street, 
     localStorage.setItem("accounts", JSON.stringify(accounts));
 }
 
+
+/**
+ * Function used for showing an
+ * alert on the screen for the form
+ * validation. can either be success or error type
+ * 
+ * @param {string} message - Message to display
+ * @param {string} type - type of alert
+ * @param {string} alertPlaceholderId - id of the element that is going to display
+ * 
+ * @export
+ */
 export function showAlert(message, type, alertPlaceholderId) {
     const alertPlaceholder = document.getElementById(alertPlaceholderId);
     alertPlaceholder.innerHTML = '';

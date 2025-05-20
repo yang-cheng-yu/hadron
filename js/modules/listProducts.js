@@ -10,6 +10,14 @@ const DESC_SHOW = 1;
 
 let style = 0;
 
+
+/**
+ * Starts the product list.
+ * Adds event listeners to view 
+ * and description toggle buttons
+ * 
+ * @export
+ */
 export function initList() {
     updateList();
     
@@ -33,6 +41,12 @@ export function initList() {
     })
 }
 
+/**
+ * Updates the style based on selected view or description mode.
+ * 
+ * @param {number} view - New view mode index
+ * @param {number} desc - New description toggle index
+ */
 function changeDisplay(view, desc) {   
     if(view >= 0 && view <= 2) {
         let currentDesc = style % 10;
@@ -50,6 +64,13 @@ function changeDisplay(view, desc) {
     updateList();
 }
 
+/**
+ * Highlights the selected button 
+ * and removes highlighting from others
+ * 
+ * @param {HTMLElement} button - The clicked button
+ * @param {NodeListOf<HTMLElement>} set - The group of buttons to reset
+ */
 function updateButtons(button, set) {
     set.forEach(btn => {
         btn.classList.remove("btn-selected");
@@ -58,12 +79,25 @@ function updateButtons(button, set) {
     button.classList.add("btn-selected");
 }
 
+/**
+ * Fetches the product data and 
+ * renders it
+ * 
+ * @async
+ */
 async function updateList() {
     const data = await fetchData("/data/products.json");
 
     parseList(data.products, style);
 }
 
+/**
+ * Parses and renders the list of products 
+ * into the DOM
+ * 
+ * @param {Array<Object>} list - Array of product to render
+ * @param {number} style - style value
+ */
 function parseList(list, style) {
     const parent = document.getElementById("products-list");
     parent.innerHTML = '';
