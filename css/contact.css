@@ -49,7 +49,7 @@ body{
     grid-row: 1;
     grid-column: 2;
     font-size: 3em;
-    padding-top: 33%;
+    padding-top: 30%;
 }
 
 .support{
@@ -58,33 +58,15 @@ body{
     background-color: var(--dark-page-darker);
     padding: 30px;
     border-radius: 40px;
-    font-size: 32px;
+    font-size: 28px;
     text-align: center;
+    align-self:flex-start;
 }
 
 .support button{
-    font-size: 20px;
+    font-size: 26px;
 }
 
-.support p{
-    margin: 10px;
-}
-
-.issue{
-    grid-row: 3;
-    grid-column: 2;
-    background-color: var(--dark-page-darker);
+label{
     padding: 30px;
-    border-radius: 40px;
-    font-size: 32px;
-    width: 355px;
-    text-align: center;
-}
-
-.issue button{
-    font-size: 20px;
-}
-
-.issue p{
-    margin: 10px
 }

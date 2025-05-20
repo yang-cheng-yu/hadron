@@ -113,7 +113,7 @@
             "description": "Hadron C/C++ development IDE",
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HByte.png",
             "price": "40",
             "copiesSold": "85"
         },
@@ -123,7 +123,7 @@
             "description": "Hadron Digital drawing and painting Studio",
             "categories": ["Creative", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HDraw.png",
             "price": "20",
             "copiesSold": "142"
         },
@@ -133,7 +133,7 @@
             "description": "Hadron Presentation builder with animations",
             "categories": ["Creative", "Free"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HSlides.png",
             "price": "0",
             "copiesSold": "413300"
         },
@@ -143,7 +143,7 @@
             "description": "Hadron Sound sampling and beat slicing studio",
             "categories": ["Producer", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HSample.png",
             "price": "120",
             "copiesSold": "23"
         },
@@ -153,7 +153,7 @@
             "description": "Hadron vocal processing suite",
             "categories": ["Producer", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HVox.png",
             "price": "140",
             "copiesSold": "56"
         },
@@ -163,7 +163,7 @@
             "description": "Hadron Synthesizer & Plugin tool for DAWs",
             "categories": ["Producer", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HSynth.png",
             "price": "85",
             "copiesSold": "232"
         },
@@ -173,7 +173,7 @@
             "description": "Hadron Online collaborative IDE for Teams",
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HCloudCode.png",
             "price": "10",
             "copiesSold": "8627"
         },
@@ -183,7 +183,7 @@
             "description": "Hadron 2D animation software for film",
             "categories": ["Creative", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HFrame.png",
             "price": "45",
             "copiesSold": "412"
         },
@@ -193,7 +193,7 @@
             "description": "Hadron API Documentation generator",
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HDocs.png",
             "price": "25",
             "copiesSold": "61233"
         },
@@ -203,7 +203,7 @@
             "description": "Hadron Unit Testing and Debugging suite",
             "categories": ["IDE", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HTestingLab.png",
             "price": "30",
             "copiesSold": "457"
         },
@@ -213,7 +213,7 @@
             "description": "Hadron Comic panel Design Studio",
             "categories": ["Creative", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HComic.png",
             "price": "29",
             "copiesSold": "518"
         },
@@ -223,7 +223,7 @@
             "description": "Hadron Color Scheme Generator",
             "categories": ["Creative", "Paid"],
             "company": "Hadron",
-            "image": "HMixStudio.png",
+            "image": "HPalette.png",
             "price": "5",
             "copiesSold": "91288"
         }

@@ -10,6 +10,7 @@ import { addToCart } from "./modules/addToCart.js";
 import { loadCart } from "./modules/loadCart.js";
 import { goToCheckout } from "./modules/loadCart.js";
 import { handlePromo } from "./modules/loadCart.js";
+import { sendInquiry } from "./modules/sendInquiry.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
@@ -63,5 +64,9 @@ function initApp() {
         chkBtn.addEventListener("click", goToCheckout);
         const promoBtn = document.getElementById("addPromo");
         promoBtn.addEventListener("click", handlePromo);
+    }
+    if(page === "contact") {
+        const sndBtn = document.getElementById("sendComment");
+        sndBtn.addEventListener("click", sendInquiry);
     }
 }
