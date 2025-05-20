@@ -59,44 +59,43 @@ function checkCredentials(){
             isValid = false;
             messages.push("Passwords do not match");
         }
+        const phonenumRegex = /^\d{10}$/;
+        if (phonenumRegex.test(phonenum) == false){
+            messages.push("Phone Number must be 10 numbers");
+            isValid = false;
+        }
+        const lettersRegex = /^[A-Za-z]+$/;
+        if (lettersRegex.test(fname) == false){
+            messages.push("First name must be only letters");
+            isValid = false;
+        }
+        if (lettersRegex.test(lname) == false){
+            messages.push("Last name must be letters");
+            isValid = false;
+        }
+        const numberRegex = /\d+/;
+        if (numberRegex.test(aptNum) == false){
+            messages.push("apt Num must be a number");
+            isValid = false;
+        }
+        if (lettersRegex.test(city) == false){
+            messages.push("City must be letters");
+            isValid = false;
+        }
+        if (lettersRegex.test(country) == false){
+            messages.push("Country must be letters");
+            isValid = false;
+        }
+        const postCodeRegex = /[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d/;
+        if (postCodeRegex.test(postCode) == false){
+            messages.push("Postal Code bad Format");
+            isValid = false;
+        }
+        if (lettersRegex.test(province) == false){
+            messages.push("province must be letters");
+            isValid = false;
+        }
     }
-    const phonenumRegex = /^\d{10}$/;
-    if (phonenumRegex.test(phonenum) == false){
-        messages.push("Phone Number must be 10 numbers");
-        isValid = false;
-    }
-    const lettersRegex = /^[A-Za-z]+$/;
-    if (lettersRegex.test(fname) == false){
-        messages.push("First name must be only letters");
-        isValid = false;
-    }
-    if (lettersRegex.test(lname) == false){
-        messages.push("Last name must be letters");
-        isValid = false;
-    }
-    const numberRegex = /\d+/;
-    if (numberRegex.test(aptNum) == false){
-        messages.push("apt Num must be a number");
-        isValid = false;
-    }
-    if (lettersRegex.test(city) == false){
-        messages.push("City must be letters");
-        isValid = false;
-    }
-    if (lettersRegex.test(country) == false){
-        messages.push("Country must be letters");
-        isValid = false;
-    }
-    const postCodeRegex = /[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d/;
-    if (postCodeRegex.test(postCode) == false){
-        messages.push("Postal Code bad Format");
-        isValid = false;
-    }
-    if (lettersRegex.test(province) == false){
-        messages.push("province must be letters");
-        isValid = false;
-    }
-
     if (isValid) {
         addAccounts(username,email,password);
         showAlert("User registered successfully", "success", "alert-container");
