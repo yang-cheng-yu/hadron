@@ -28,7 +28,9 @@ function loadButtons() {
     const schale = document.getElementById("btn-schale");
 
     back.addEventListener('click', () => {
-        showElementGroup("selection");
+        const parent = document.querySelector(".show").dataset.parent;
+        if (parent)
+            showElementGroup(parent);
     });
 
     anime.addEventListener('click', () => {
@@ -137,4 +139,12 @@ function parseShows(shows) {
 
             table.appendChild(newRow);
     });
+}
+
+async function fetchSchale(){
+    console.log("Fetching Schale...");
+    let uri = "https://api-blue-archive.vercel.app/";
+
+    const data = await fetchData(uri);
+    console.log(data);
 }

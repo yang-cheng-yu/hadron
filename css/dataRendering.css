@@ -67,7 +67,16 @@ body{
     height: calc(100vh - 80px);
     overflow-y: scroll;
     overflow-x: hidden;
+    text-align: center;
+}
+
+.anime thead {
+    background-color: var(--dark-page-darker);
     font-size: 1.25em;
+}
+
+.anime th {
+    padding: 20px;
 }
 
 .anime tbody tr td {
@@ -89,7 +98,10 @@ body{
 
 
 .schale {
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .fading-element {
