@@ -20,7 +20,7 @@ export function initMostPopular() {
  * @async
  */
 async function updateList() {
-    const data = await fetchData("/data/products.json");
+    const data = await fetchData("./../../data/products.json");
 
     parseList(data.products);
 }
@@ -51,12 +51,12 @@ async function parseList(list) {
             const element = appendNewElement("div", "", parent);
             element.classList.add("app");
             element.addEventListener('click', () => {
-                window.location.href = "/pages/product.html"
+                window.location.href = "./../../pages/product.html"
                 sessionStorage.setItem("selectedProductId", product.id);
             });
                 
             const img = appendNewElement("img", "", element);
-            img.src = "/assets/images/appicons/" + product.image;
+            img.src = "assets/images/appicons/" + product.image;
             img.alt = product.title;
         }
 

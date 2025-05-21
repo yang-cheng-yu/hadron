@@ -128,7 +128,7 @@ function updateButtons(button, set) {
  * @async
  */
 async function updateList() {
-    let data = await fetchData("/data/products.json");
+    let data = await fetchData("./../../data/products.json");
     data = data.products;
 
     const search = document.getElementById("searchProducts").value;
@@ -176,7 +176,7 @@ function parseList(list, style) {
         });
         
         const img = appendNewElement("img", "", element);
-        img.src = "/assets/images/appicons/" + product.image;
+        img.src = "./../../assets/images/appicons/" + product.image;
         img.alt = product.title;
 
         appendNewElement("div", product.title, element).classList.add("item-title");
