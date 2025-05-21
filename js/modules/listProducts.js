@@ -2,39 +2,42 @@ import { fetchData } from "./fetch.js";
 import { appendNewElement } from "./util.js";
 
 /**
- * Description placeholder
+ * Global constant for value of Grid View for list style
  *
  * @type {0}
  */
 const VIEW_GRID = 0;
+
 /**
- * Description placeholder
+ * Global constant for value of Compact Grid View for list style
  *
  * @type {1}
  */
 const VIEW_CONPACT_GRID = 1;
+
 /**
- * Description placeholder
+ * Global constant for value of List View for list style
  *
  * @type {2}
  */
 const VIEW_LIST = 2;
 
 /**
- * Description placeholder
+ * Global constant for value of Show Desctiption for list style
  *
  * @type {0}
  */
 const DESC_HIDE = 0;
+
 /**
- * Description placeholder
+ * Global constant for value of Hide Desctiption for list style
  *
  * @type {1}
  */
 const DESC_SHOW = 1;
 
 /**
- * Description placeholder
+ * Global variable for holding value of current style
  *
  * @type {number}
  */
@@ -69,6 +72,15 @@ export function initList() {
         });
         console.log("Button loaded: " + index);
     })
+
+    const search = document.getElementById("searchProducts");
+    search.addEventListener("blur", updateList);
+    search.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            updateList();
+        }
+    });
+
 }
 
 /**
@@ -116,9 +128,16 @@ function updateButtons(button, set) {
  * @async
  */
 async function updateList() {
-    const data = await fetchData("/data/products.json");
+    let data = await fetchData("/data/products.json");
+    data = data.products;
 
-    parseList(data.products, style);
+    const search = document.getElementById("searchProducts").value;
+
+    if (search.trim()) {
+        data = data.filter(product => product.title.toLowerCase().includes(search.trim().toLowerCase()));
+    }
+
+    parseList(data, style);
 }
 
 /**

@@ -1,9 +1,17 @@
 
 /**
- * Global variables for holding already fetched lists
+ * Global variable for holding already fetched list
  */
 let shows;
+
+/**
+ * Global variable for holding already fetched list
+ */
 let characters;
+
+/**
+ * Global variable for holding already fetched list
+ */
 let amiibo;
 
 import { appendNewElement } from "./util.js";
