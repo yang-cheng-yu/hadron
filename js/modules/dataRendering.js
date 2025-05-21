@@ -1,3 +1,4 @@
+/** Description placeholder */
 function initApp() {
     fetchShows()
 }
@@ -141,6 +142,12 @@ function parseShows(shows) {
     });
 }
 
+/**
+ * Description placeholder
+ *
+ * @async
+ * @returns {*} 
+ */
 async function fetchSchale(){
     console.log("Fetching Schale...");
     let uri = "https://api-blue-archive.vercel.app/";

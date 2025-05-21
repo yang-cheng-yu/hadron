@@ -1,7 +1,17 @@
 import { fetchData } from "./fetch.js";
 import { loadPromo } from "./loadPromo.js";
 
+/**
+ * Description placeholder
+ *
+ * @type {number}
+ */
 let productTotal = 0;
+/**
+ * Description placeholder
+ *
+ * @type {number}
+ */
 let promo = 0;
 
 /**

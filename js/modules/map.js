@@ -1,6 +1,11 @@
 import { fetchData } from "./fetch.js";
 import { appendNewElement, arrayEquals } from "./util.js";
 
+/**
+ * Description placeholder
+ *
+ * @type {{}}
+ */
 const markers = [];
 
 /**

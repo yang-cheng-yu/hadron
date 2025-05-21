@@ -1,3 +1,4 @@
+/** Description placeholder */
 function initApp() {
     const form = document.getElementById("form");
 
@@ -8,6 +9,7 @@ function initApp() {
     })
 }
 
+/** Description placeholder */
 function validateForm() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -50,8 +52,19 @@ function validateForm() {
     }
 }
 
+/**
+ * Description placeholder
+ *
+ * @type {*}
+ */
 const alertPlaceholder = document.getElementById('alert-placeholder');
 
+/**
+ * Description placeholder
+ *
+ * @param {*} message 
+ * @param {*} type 
+ */
 function showAlert(message, type) {
     alertPlaceholder.innerHTML = '';
     const wrapper = document.createElement('div')
