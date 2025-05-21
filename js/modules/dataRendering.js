@@ -45,7 +45,7 @@ function loadButtons() {
     schools.forEach(school => {
         school.addEventListener('click', (event) => {
             showElementGroup("characters");
-            fetchSchale(event.target.id);
+            fetchSchale();
         })
     })
 }
@@ -158,10 +158,10 @@ function parseShows() {
  * @async
  * @returns {*} 
  */
-async function fetchSchale(school){
+async function fetchSchale(){
 
     console.log("Fetching Schale...");
-    let uri = `https://api-blue-archive.vercel.app/api/characters?school=${kebabToEncoded(school)}`;
+    let uri = `https://www.amiiboapi.com/api/amiibo/`;
 
     characters = await fetchData(uri);
     console.log(characters);
