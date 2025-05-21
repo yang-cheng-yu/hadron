@@ -56,7 +56,7 @@ async function parseList(list) {
             });
                 
             const img = appendNewElement("img", "", element);
-            img.src = "./../assets/images/appicons/" + product.image;
+            img.src = "./..assets/images/appicons/" + product.image;
             img.alt = product.title;
         }
 
