@@ -1,6 +1,7 @@
 
 let shows;
 let characters;
+let amiibo;
 
 /**
  * Function that loads data page
@@ -25,6 +26,7 @@ function loadButtons() {
 
     const anime = document.getElementById("btn-anime");
     const schale = document.getElementById("btn-schale");
+    const amiibo = document.getElementById("btn-amiibo");
 
     const schools = document.querySelectorAll('.schale button');
 
@@ -40,6 +42,9 @@ function loadButtons() {
     });
     schale.addEventListener('click', () => {
         showElementGroup("schale");
+    });
+    amiibo.addEventListener('click', () => {
+        showElementGroup("amiibo");
     });
 
     schools.forEach(school => {
@@ -146,8 +151,6 @@ function parseShows() {
             image.setAttribute("src", show.images.jpg.image_url);
             rowContent[10].appendChild(image);
 
-            
-
             table.appendChild(newRow);
     });
 }
@@ -161,7 +164,7 @@ function parseShows() {
 async function fetchSchale(){
 
     console.log("Fetching Schale...");
-    let uri = `https://www.amiiboapi.com/api/amiibo/`;
+    let uri = `https://api-blue-archive.vercel.app/api/characters?school=${kebabToEncoded(school)}`;
 
     characters = await fetchData(uri);
     console.log(characters);
@@ -171,6 +174,16 @@ async function fetchSchale(){
 function parseCharacters() {
 
 }
+
+async function fetchAmiibo(){
+    console.log("Fetching Schale...");
+    let uri = `https://www.amiiboapi.com/api/amiibo/`;
+
+    amiibo = await fetchData(uri);
+    console.log(amiibo);
+    parseAmiibo();
+}
+
 
 function kebabToEncoded(string) {
     return string
