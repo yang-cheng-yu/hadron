@@ -3,6 +3,8 @@ let shows;
 let characters;
 let amiibo;
 
+import { appendNewElement } from "./util.js";
+
 /**
  * Function that loads data page
  * by attaching event listeners to buttons and
@@ -45,6 +47,7 @@ function loadButtons() {
     });
     amiibo.addEventListener('click', () => {
         showElementGroup("amiibo");
+        fetchAmiibo();
     });
 
     schools.forEach(school => {
@@ -180,8 +183,32 @@ async function fetchAmiibo(){
     let uri = `https://www.amiiboapi.com/api/amiibo/`;
 
     amiibo = await fetchData(uri);
+    amiibo = amiibo.amiibo;
     console.log(amiibo);
     parseAmiibo();
+}
+
+
+function parseAmiibo() {
+    const parent = document.getElementById('amiibo');
+
+    parent.innerHTML = '';
+
+    amiibo.forEach(card => {
+        const wrapper = appendNewElement('div', '', parent);
+        wrapper.classList.add('card');
+
+        const imgWrapper = appendNewElement('div', '', wrapper);
+        imgWrapper.classList.add('amiibo-img');
+
+        const image = appendNewElement('img', '', imgWrapper);
+        image.src = card.image;
+
+        const name = appendNewElement('div', card.name, wrapper);
+        name.classList.add('amiibo-name');
+        const game = appendNewElement('div', card.gameSeries, wrapper);
+        game.classList.add('amiibo-game');
+    })
 }
 
 
