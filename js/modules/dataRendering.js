@@ -1,4 +1,7 @@
 
+/**
+ * Global variables for holding already fetched lists
+ */
 let shows;
 let characters;
 let amiibo;
@@ -159,7 +162,7 @@ function parseShows() {
 }
 
 /**
- * Description placeholder
+ * Fetch Blue Archive data (does not work)
  *
  * @async
  * @returns {*} 
@@ -178,6 +181,9 @@ function parseCharacters() {
 
 }
 
+/**
+ * Fetch Amiibo data
+ */
 async function fetchAmiibo(){
     console.log("Fetching Schale...");
     let uri = `https://www.amiiboapi.com/api/amiibo/`;
@@ -188,7 +194,9 @@ async function fetchAmiibo(){
     parseAmiibo();
 }
 
-
+/**
+ * Parse Amiibo data (card form)
+ */
 function parseAmiibo() {
     const parent = document.getElementById('amiibo');
 
@@ -211,7 +219,11 @@ function parseAmiibo() {
     })
 }
 
-
+/**
+ * Converts kebab-case string into encoded Title Case format
+ * @param {string} string in kebab-case
+ * @returns string in encoded Title Case format
+ */
 function kebabToEncoded(string) {
     return string
         .split('-')
