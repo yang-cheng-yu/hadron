@@ -2,11 +2,16 @@ import { fetchData } from "./fetch.js";
 import { appendNewElement, arrayEquals } from "./util.js";
 
 /**
- * Description placeholder
+ * Global variable for holding the markers
  *
  * @type {{}}
  */
-const markers = [];
+let markers = [];
+
+/**
+ * Global variable for holding the map
+ */
+let map;
 
 /**
  * Initializes and renders the Leaflet map on the page.
@@ -15,14 +20,23 @@ const markers = [];
  * @export
  */
 export function loadMap() {
-    const map = L.map('map').setView([35.6895, 139.69171], 5);
+
+    const search = document.getElementById('search-places');
+    search.addEventListener("blur", loadLocations);
+    search.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            loadLocations();
+        }
+    });
+
+    map = L.map('map').setView([35.6895, 139.69171], 5);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    loadLocations(map);
+    loadLocations();
 }
 
 /**
@@ -30,18 +44,31 @@ export function loadMap() {
  * adds them as markers and list items
  * 
  * @async
- * @param {L.Map} map - The Leaflet map instance to add markers to
  * @returns {Promise<void>}
  */
-async function loadLocations(map) {
+async function loadLocations() {
     const placesUri = "/data/places.json";
     const locations = await fetchData(placesUri);
+    let places = locations.places;
 
     const categories = locations.categories;
 
     const list = document.getElementById("place-list");
 
-    locations.places.forEach(place => {
+    const search = document.getElementById("search-places").value;
+
+    // Soft Reset
+    list.innerHTML = '';
+    markers.forEach(marker => {
+        map.removeLayer(marker)
+    });
+    markers = [];
+
+    if (search.trim()) {
+        places = places.filter(place => place.name.toLowerCase().includes(search.trim().toLowerCase()));
+    }
+
+    places.forEach(place => {
         // Marker
         const coordinates = place.point.coordinates;
 
