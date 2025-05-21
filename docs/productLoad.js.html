@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: productLoad.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: productLoad.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { fetchData } from "./fetch.js";
+
+/**
+ * Loads and displays detailed information about the selected product on the product page.
+ * Retrieves the product ID from sessionStorage, 
+ * matches it with the product list from the JSON file,
+ * and fills in HTML elements with the product's data.
+ * 
+ * @export
+ * @async
+ */
+export async function loadProducts(){
+    const data = await fetchData("../data/products.json");
+    const products = data.products;
+
+    const selectedProductId = sessionStorage.getItem("selectedProductId");
+
+    let product = null;
+    const selectedID = parseInt(selectedProductId);
+
+    products.forEach(p => {
+        if (p.id === selectedID) {
+            product = p;
+        }
+    });
+
+    if (!product){
+        console.error("Product Not Found");
+        return;
+    }
+
+    document.getElementById("product-image").src = "/assets/images/appicons/" + product.image;
+    document.getElementById("title").textContent = product.title;
+    document.getElementById("company").textContent = product.company;
+    document.getElementById("price").textContent = product.price + "$";
+    document.getElementById("categories").textContent = product.categories;
+    document.getElementById("description").textContent = product.description;
+    document.getElementById("copies-sold").textContent = "Copies Sold: " + product.copiesSold;
+    document.getElementById("id").textContent = "Product ID: " + selectedID;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DESC_HIDE">DESC_HIDE</a></li><li><a href="global.html#DESC_SHOW">DESC_SHOW</a></li><li><a href="global.html#VIEW_CONPACT_GRID">VIEW_CONPACT_GRID</a></li><li><a href="global.html#VIEW_GRID">VIEW_GRID</a></li><li><a href="global.html#VIEW_LIST">VIEW_LIST</a></li><li><a href="global.html#addAccounts">addAccounts</a></li><li><a href="global.html#addMarker">addMarker</a></li><li><a href="global.html#addToCart">addToCart</a></li><li><a href="global.html#amiibo">amiibo</a></li><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#arrayEquals">arrayEquals</a></li><li><a href="global.html#changeDisplay">changeDisplay</a></li><li><a href="global.html#characters">characters</a></li><li><a href="global.html#checkCardCredentials">checkCardCredentials</a></li><li><a href="global.html#checkCredentials">checkCredentials</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#clearCart">clearCart</a></li><li><a href="global.html#confirmPurchase">confirmPurchase</a></li><li><a href="global.html#createAccount">createAccount</a></li><li><a href="global.html#fetchAmiibo">fetchAmiibo</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchSchale">fetchSchale</a></li><li><a href="global.html#fetchShows">fetchShows</a></li><li><a href="global.html#findMarker">findMarker</a></li><li><a href="global.html#findProducts">findProducts</a></li><li><a href="global.html#getCustomIcon">getCustomIcon</a></li><li><a href="global.html#goToCheckout">goToCheckout</a></li><li><a href="global.html#handlePromo">handlePromo</a></li><li><a href="global.html#initApp">initApp</a></li><li><a href="global.html#initList">initList</a></li><li><a href="global.html#initMostPopular">initMostPopular</a></li><li><a href="global.html#initSignIn">initSignIn</a></li><li><a href="global.html#kebabToEncoded">kebabToEncoded</a></li><li><a href="global.html#loadButtons">loadButtons</a></li><li><a href="global.html#loadCart">loadCart</a></li><li><a href="global.html#loadCheckout">loadCheckout</a></li><li><a href="global.html#loadDataPage">loadDataPage</a></li><li><a href="global.html#loadLocations">loadLocations</a></li><li><a href="global.html#loadMap">loadMap</a></li><li><a href="global.html#loadProducts">loadProducts</a></li><li><a href="global.html#loadPromo">loadPromo</a></li><li><a href="global.html#loadShippingInformation">loadShippingInformation</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#markers">markers</a></li><li><a href="global.html#parseAmiibo">parseAmiibo</a></li><li><a href="global.html#parseList">parseList</a></li><li><a href="global.html#parseProducts">parseProducts</a></li><li><a href="global.html#parseShows">parseShows</a></li><li><a href="global.html#productTotal">productTotal</a></li><li><a href="global.html#promo">promo</a></li><li><a href="global.html#sendInquiry">sendInquiry</a></li><li><a href="global.html#setupNav">setupNav</a></li><li><a href="global.html#showAlert">showAlert</a></li><li><a href="global.html#showAmount">showAmount</a></li><li><a href="global.html#showElementGroup">showElementGroup</a></li><li><a href="global.html#shows">shows</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#storeInquiry">storeInquiry</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#updateButtons">updateButtons</a></li><li><a href="global.html#updateCartQuantity">updateCartQuantity</a></li><li><a href="global.html#updateList">updateList</a></li><li><a href="global.html#updateProductTotal">updateProductTotal</a></li><li><a href="global.html#updateValues">updateValues</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue May 20 2025 23:43:35 GMT-0400 (Eastern Daylight Saving Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

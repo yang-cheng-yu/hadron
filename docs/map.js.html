@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: map.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: map.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { fetchData } from "./fetch.js";
+import { appendNewElement, arrayEquals } from "./util.js";
+
+/**
+ * Global variable for holding the markers
+ *
+ * @type {{}}
+ */
+let markers = [];
+
+/**
+ * Global variable for holding the map
+ */
+let map;
+
+/**
+ * Initializes and renders the Leaflet map on the page.
+ * Loads OpenStreetMap tiles and place markers with popup info.
+ * 
+ * @export
+ */
+export function loadMap() {
+
+    const search = document.getElementById('search-places');
+    search.addEventListener("blur", loadLocations);
+    search.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            loadLocations();
+        }
+    });
+
+    map = L.map('map').setView([35.6895, 139.69171], 5);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&amp;copy; &lt;a href="http://www.openstreetmap.org/copyright">OpenStreetMap&lt;/a>'
+    }).addTo(map);
+
+    loadLocations();
+}
+
+/**
+ * Loads place data from a JSON file and 
+ * adds them as markers and list items
+ * 
+ * @async
+ * @returns {Promise&lt;void>}
+ */
+async function loadLocations() {
+    const placesUri = "/data/places.json";
+    const locations = await fetchData(placesUri);
+    let places = locations.places;
+
+    const categories = locations.categories;
+
+    const list = document.getElementById("place-list");
+
+    const search = document.getElementById("search-places").value;
+
+    // Soft Reset
+    list.innerHTML = '';
+    markers.forEach(marker => {
+        map.removeLayer(marker)
+    });
+    markers = [];
+
+    if (search.trim()) {
+        places = places.filter(place => place.name.toLowerCase().includes(search.trim().toLowerCase()));
+    }
+
+    places.forEach(place => {
+        // Marker
+        const coordinates = place.point.coordinates;
+
+        let category = categories.find(category => category.id === place.categoryId).name;
+        let content = `&lt;div class='place-name ${category}'>${place.name}&lt;/div>
+                        &lt;div>${place.description}&lt;/div>
+                        &lt;div>${coordinates.join(', ')}&lt;/div>`;
+
+        addMarker(coordinates, content, map, category);
+
+        // List item
+        const item = appendNewElement("div", "", list);
+        item.classList.add("place");
+        item.addEventListener("click", () => {
+            map.setView(coordinates, 13);
+            const marker = findMarker(coordinates);
+            console.log(marker);
+            marker.openPopup();
+        });
+
+        const imageHolder = appendNewElement("div", "", item);
+        imageHolder.classList.add("place-image");
+        const image = appendNewElement("img", "", imageHolder);
+        image.src = place.img;
+
+        const textHolder = appendNewElement("div", "", item);
+        textHolder.classList.add("place-text");
+        const title = appendNewElement("div", place.name, textHolder);
+        title.classList.add("place-title", category);
+        const desc = appendNewElement("div", place.description, textHolder);
+        desc.classList.add("place-desc");
+    });
+}
+
+/**
+ * Creates a custom Leaflet icon using the given category.
+ * Icon file should match category name
+ * 
+ * @param {string} category - The category name for icon
+ */
+function getCustomIcon(category) {
+    var customIcon = L.Icon.extend({
+        options: {
+            iconSize:     [40, 50],
+            iconAnchor:   [20, 50],
+            popupAnchor:  [0, -50]
+        }
+    });
+    return new customIcon({iconUrl: `/assets/markers/${category}.png`});
+}
+
+/**
+ * Adds a marker to the map with a popup 
+ * and stores it in the markers array.
+ * 
+ * @param {number[]} coordinates - coordinates for the marker
+ * @param {string} contentString - HTML content for the marker's popup
+ * @param {L.Map} map - Leaflet map instance
+ * @param {string} category - The category used to determine the marker icon
+ */
+function addMarker(coordinates, contentString, map, category) {
+    const marker = L.marker(coordinates, {icon: getCustomIcon(category)});
+    marker.bindPopup(contentString);
+    marker.addTo(map);
+
+    markers.push(marker);
+}
+
+/**
+ * Finds a marker in the markers
+ * array that matches the given coordinates.
+ * 
+ * @param {number[]} coordinates - coordinates of the target marker
+ * @returns {L.Marker|null} The matching marker, or null if not found
+ */
+function findMarker(coordinates) {
+
+    for (const marker of markers) {
+        const markerCoords = marker.getLatLng();
+        console.log(coordinates.equals([markerCoords.lat, markerCoords.lng]));
+        
+        if (coordinates.equals([markerCoords.lat, markerCoords.lng])) {
+            console.log(marker);
+            return marker;
+        }
+    }
+
+    console.log(nothing);
+    return null;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DESC_HIDE">DESC_HIDE</a></li><li><a href="global.html#DESC_SHOW">DESC_SHOW</a></li><li><a href="global.html#VIEW_CONPACT_GRID">VIEW_CONPACT_GRID</a></li><li><a href="global.html#VIEW_GRID">VIEW_GRID</a></li><li><a href="global.html#VIEW_LIST">VIEW_LIST</a></li><li><a href="global.html#addAccounts">addAccounts</a></li><li><a href="global.html#addMarker">addMarker</a></li><li><a href="global.html#addToCart">addToCart</a></li><li><a href="global.html#amiibo">amiibo</a></li><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#arrayEquals">arrayEquals</a></li><li><a href="global.html#changeDisplay">changeDisplay</a></li><li><a href="global.html#characters">characters</a></li><li><a href="global.html#checkCardCredentials">checkCardCredentials</a></li><li><a href="global.html#checkCredentials">checkCredentials</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#clearCart">clearCart</a></li><li><a href="global.html#confirmPurchase">confirmPurchase</a></li><li><a href="global.html#createAccount">createAccount</a></li><li><a href="global.html#fetchAmiibo">fetchAmiibo</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchSchale">fetchSchale</a></li><li><a href="global.html#fetchShows">fetchShows</a></li><li><a href="global.html#findMarker">findMarker</a></li><li><a href="global.html#findProducts">findProducts</a></li><li><a href="global.html#getCustomIcon">getCustomIcon</a></li><li><a href="global.html#goToCheckout">goToCheckout</a></li><li><a href="global.html#handlePromo">handlePromo</a></li><li><a href="global.html#initApp">initApp</a></li><li><a href="global.html#initList">initList</a></li><li><a href="global.html#initMostPopular">initMostPopular</a></li><li><a href="global.html#initSignIn">initSignIn</a></li><li><a href="global.html#kebabToEncoded">kebabToEncoded</a></li><li><a href="global.html#loadButtons">loadButtons</a></li><li><a href="global.html#loadCart">loadCart</a></li><li><a href="global.html#loadCheckout">loadCheckout</a></li><li><a href="global.html#loadDataPage">loadDataPage</a></li><li><a href="global.html#loadLocations">loadLocations</a></li><li><a href="global.html#loadMap">loadMap</a></li><li><a href="global.html#loadProducts">loadProducts</a></li><li><a href="global.html#loadPromo">loadPromo</a></li><li><a href="global.html#loadShippingInformation">loadShippingInformation</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#markers">markers</a></li><li><a href="global.html#parseAmiibo">parseAmiibo</a></li><li><a href="global.html#parseList">parseList</a></li><li><a href="global.html#parseProducts">parseProducts</a></li><li><a href="global.html#parseShows">parseShows</a></li><li><a href="global.html#productTotal">productTotal</a></li><li><a href="global.html#promo">promo</a></li><li><a href="global.html#sendInquiry">sendInquiry</a></li><li><a href="global.html#setupNav">setupNav</a></li><li><a href="global.html#showAlert">showAlert</a></li><li><a href="global.html#showAmount">showAmount</a></li><li><a href="global.html#showElementGroup">showElementGroup</a></li><li><a href="global.html#shows">shows</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#storeInquiry">storeInquiry</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#updateButtons">updateButtons</a></li><li><a href="global.html#updateCartQuantity">updateCartQuantity</a></li><li><a href="global.html#updateList">updateList</a></li><li><a href="global.html#updateProductTotal">updateProductTotal</a></li><li><a href="global.html#updateValues">updateValues</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue May 20 2025 23:43:35 GMT-0400 (Eastern Daylight Saving Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
