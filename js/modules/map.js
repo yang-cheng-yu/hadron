@@ -47,7 +47,7 @@ export function loadMap() {
  * @returns {Promise<void>}
  */
 async function loadLocations() {
-    const placesUri = "./../../data/places.json";
+    const placesUri = "/data/places.json";
     const locations = await fetchData(placesUri);
     let places = locations.places;
 
@@ -117,7 +117,7 @@ function getCustomIcon(category) {
             popupAnchor:  [0, -50]
         }
     });
-    return new customIcon({iconUrl: `./../../assets/markers/${category}.png`});
+    return new customIcon({iconUrl: `/assets/markers/${category}.png`});
 }
 
 /**
