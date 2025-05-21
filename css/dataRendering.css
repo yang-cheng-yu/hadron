@@ -96,12 +96,39 @@ body{
 }
 
 
-
 .schale {
+    display: block;
+    text-align: center;
+}
+
+.schale h1 {
+    padding-top: 50px;
+}
+
+.schale-buttons {
+    padding-top: 50px;
+    width: 100vw;
+    height: calc(100vh - 200px);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
+}
+
+.schale-buttons button {
+    height: 10vw;
+    width: 10vw;
+    margin: 30px;
+    font-size: 1.5em;
+    border: none;
+    background-color: var(--dark-page-medium);
+}
+
+.schale-buttons button:active {
+    background-color: var(--dark-page-light);
+}
+
+.schale-buttons button:hover {
+    background-color: var(--dark-page-light);
 }
 
 .fading-element {
@@ -111,6 +138,17 @@ body{
     transform: translateY(-10vh);
     opacity: 0;
 }
+
+
+
+.characters {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    display: block;
+    text-align: center;
+}
+
+
 
 .show {
     visibility: visible;

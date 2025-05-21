@@ -1,7 +1,6 @@
-function initApp() {
-    fetchShows()
-}
 
+let shows;
+let characters;
 
 /**
  * Function that loads data page
@@ -27,6 +26,8 @@ function loadButtons() {
     const anime = document.getElementById("btn-anime");
     const schale = document.getElementById("btn-schale");
 
+    const schools = document.querySelectorAll('.schale button');
+
     back.addEventListener('click', () => {
         const parent = document.querySelector(".show").dataset.parent;
         if (parent)
@@ -40,6 +41,13 @@ function loadButtons() {
     schale.addEventListener('click', () => {
         showElementGroup("schale");
     });
+
+    schools.forEach(school => {
+        school.addEventListener('click', (event) => {
+            showElementGroup("characters");
+            fetchSchale(event.target.id);
+        })
+    })
 }
 
 /**
@@ -71,12 +79,15 @@ function showElementGroup(group) {
  * @async
  */
 async function fetchShows(){
-    console.log("Fetching Shows...");
-    let uri = "https://api.jikan.moe/v4/anime";
+    if (!shows) {
+        console.log("Fetching Shows...");
+        let uri = "https://api.jikan.moe/v4/anime";
 
-    const data = await fetchData(uri);
-    console.log(data);
-    parseShows(data.data);
+        shows = await fetchData(uri);
+        shows = shows.data;
+        console.log(shows);
+    }
+    parseShows();
 }
 
 
@@ -108,7 +119,7 @@ async function fetchData(resourceUri){
  * 
  * @param {Array<Object>} shows - An array of anime show objects to display in the table
  */
-function parseShows(shows) {
+function parseShows() {
     const table = document.getElementById("table-shows");
     table.innerHTML = "";
 
@@ -141,10 +152,22 @@ function parseShows(shows) {
     });
 }
 
-async function fetchSchale(){
+async function fetchSchale(school){
     console.log("Fetching Schale...");
-    let uri = "https://api-blue-archive.vercel.app/";
+    let uri = `https://api-blue-archive.vercel.app/api/characters?school=${kebabToEncoded(school)}`;
 
-    const data = await fetchData(uri);
-    console.log(data);
+    characters = await fetchData(uri);
+    console.log(characters);
+    parseCharacters();
+}
+
+function parseCharacters() {
+    
+}
+
+function kebabToEncoded(string) {
+    return string
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('%20');
 }
