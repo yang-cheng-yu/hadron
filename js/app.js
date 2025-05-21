@@ -16,6 +16,7 @@ import { confirmPurchase } from "./modules/loadCheckout.js";
 
 document.addEventListener("DOMContentLoaded", initApp);
 
+/** Description placeholder */
 function initApp() {
     setupNav();
     const currentUser = localStorage.getItem('currentUser');

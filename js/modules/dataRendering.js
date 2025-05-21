@@ -152,7 +152,14 @@ function parseShows() {
     });
 }
 
+/**
+ * Description placeholder
+ *
+ * @async
+ * @returns {*} 
+ */
 async function fetchSchale(school){
+
     console.log("Fetching Schale...");
     let uri = `https://api-blue-archive.vercel.app/api/characters?school=${kebabToEncoded(school)}`;
 
@@ -162,7 +169,7 @@ async function fetchSchale(school){
 }
 
 function parseCharacters() {
-    
+
 }
 
 function kebabToEncoded(string) {

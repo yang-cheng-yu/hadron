@@ -1,13 +1,43 @@
 import { fetchData } from "./fetch.js";
 import { appendNewElement } from "./util.js";
 
+/**
+ * Description placeholder
+ *
+ * @type {0}
+ */
 const VIEW_GRID = 0;
+/**
+ * Description placeholder
+ *
+ * @type {1}
+ */
 const VIEW_CONPACT_GRID = 1;
+/**
+ * Description placeholder
+ *
+ * @type {2}
+ */
 const VIEW_LIST = 2;
 
+/**
+ * Description placeholder
+ *
+ * @type {0}
+ */
 const DESC_HIDE = 0;
+/**
+ * Description placeholder
+ *
+ * @type {1}
+ */
 const DESC_SHOW = 1;
 
+/**
+ * Description placeholder
+ *
+ * @type {number}
+ */
 let style = 0;
 
 

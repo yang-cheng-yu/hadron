@@ -1,3 +1,12 @@
+/**
+ * Description placeholder
+ *
+ * @export
+ * @param {*} type 
+ * @param {*} textContent 
+ * @param {*} parent 
+ * @returns {*} 
+ */
 export function appendNewElement(type, textContent, parent) {
     const element = document.createElement(type);
     element.textContent = textContent;
@@ -17,6 +26,12 @@ Array.prototype.equals = function(arr) {
     return true;
 };
 
+/**
+ * Description placeholder
+ *
+ * @param {*} arr 
+ * @returns {*} 
+ */
 export const arrayEquals = function(arr) {
     return this.equals(arr);
 };
