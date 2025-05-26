@@ -18,7 +18,12 @@ document.addEventListener("DOMContentLoaded", initApp);
 
 /** Description placeholder */
 function initApp() {
-    setupNav();
+    const page = document.querySelector("[data-page]").dataset.page;
+    let pageRoot = "";
+    if (page === "index") {
+        pageRoot = "pages/";
+    }
+    setupNav(pageRoot);
     const currentUser = localStorage.getItem('currentUser');
     const cart = document.getElementById("cart");
     if (!currentUser){
@@ -28,7 +33,6 @@ function initApp() {
         cart.href = "/pages/cart.html";
     }
 
-    const page = document.querySelector("[data-page]").dataset.page;
     if(page === "index") {
         initMostPopular();
     }

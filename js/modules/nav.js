@@ -3,7 +3,7 @@
  * 
  * @export
  */
-export function setupNav() {
+export function setupNav(path) {
     const nav = document.createElement("nav");
     nav.id = "nav";
     nav.innerHTML = `
@@ -16,9 +16,9 @@ export function setupNav() {
         </div>
         <div class="nav-item nav-list">
             <ul>
-                <li class="nav-item list-item" id="products"><a href="/pages/productListing.html">Products</a></li>
-                <li class="nav-item list-item" id="about"><a href="/pages/about.html">About</a></li>
-                <li class="nav-item list-item" id="contact"><a href="/pages/contact.html">Contact</a></li>
+                <li class="nav-item list-item" id="products"><a href="${path}productListing.html">Products</a></li>
+                <li class="nav-item list-item" id="about"><a href="${path}about.html">About</a></li>
+                <li class="nav-item list-item" id="contact"><a href="${path}contact.html">Contact</a></li>
             </ul>
         </div>
         <div class="nav-item">

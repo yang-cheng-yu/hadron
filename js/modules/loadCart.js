@@ -62,7 +62,7 @@ function updateProductTotal(products) {
  * @param {Array<number>} productIds - List of product IDs from the cart
  */
 async function findProducts(productIds) {
-    const data = await fetchData("/data/products.json");
+    const data = await fetchData("../../data/products.json");
     const products = data.products;
 
     const allProducts = {};
