@@ -101,7 +101,7 @@ function parseProducts(products){
         }
 
         const image = document.createElement("img");
-        image.setAttribute("src", "/assets/images/appicons/" + product.image);
+        image.setAttribute("src", "../assets/images/appicons/" + product.image);
         image.setAttribute("width", "200");
         rowContent[0].appendChild(image);
         rowContent[1].textContent = product.title;
@@ -174,7 +174,7 @@ function showAmount(products){
  * @export
  */
 export function goToCheckout(){
-    window.location.href = "/pages/checkout.html";
+    window.location.href = "checkout.html";
 }
 
 /**

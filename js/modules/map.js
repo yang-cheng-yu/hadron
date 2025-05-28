@@ -47,7 +47,7 @@ export function loadMap() {
  * @returns {Promise<void>}
  */
 async function loadLocations() {
-    const placesUri = "/data/places.json";
+    const placesUri = "../data/places.json";
     const locations = await fetchData(placesUri);
     let places = locations.places;
 

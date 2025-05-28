@@ -43,7 +43,7 @@ async function checkLogin(username, password){
             showAlert("Logged in", "success", "alert-container");
             console.log("logged in succesfully");
             await sleep(1000);
-            window.location.href = "/index.html";
+            window.location.href = "../index.html";
         }
         else {
             showAlert("Login failed - Check Username or Password", "danger", "alert-container");

@@ -29,7 +29,7 @@ export async function loadProducts(){
         return;
     }
 
-    document.getElementById("product-image").src = "/assets/images/appicons/" + product.image;
+    document.getElementById("product-image").src = "../assets/images/appicons/" + product.image;
     document.getElementById("title").textContent = product.title;
     document.getElementById("company").textContent = product.company;
     document.getElementById("price").textContent = product.price + "$";
