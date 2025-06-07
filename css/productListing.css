@@ -1,1 +1,140 @@
 @import url('general.css');
+@import url('toolbar.css');
+
+.main {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
+.title {
+    font-size: 10em;
+    text-align: center;
+    align-content: center;
+    padding: 20px 0;
+
+    transition: 0.5s ease-in-out;
+}
+
+.main:hover .title {
+    font-size: 5em;
+}
+
+.overview {
+    text-align: center;
+    font-size: 1.25em;
+    padding: 20px 0;
+}
+
+#products-list .list-item {
+    border-radius: 50px;
+}
+
+#products-list .list-item:hover {
+    background-color: var(--dark-page-medium);
+}
+
+#products-list .list-item img {
+    border-radius: 50px;
+}
+
+.grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid-view .list-item {
+    text-align: center;
+    flex: 1 0 50%;
+    height: 50%;
+    width: 50%;
+    padding: 25px;
+    position: relative;
+}
+
+.grid-view .list-item img {
+    position: relative;
+    z-index: 1;
+}
+
+.grid-view .list-item .item-title {
+    font-size: 2em;
+}
+
+.grid-view .list-item .item-desc {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 30px;
+    padding: 25px;
+    background-color: var(--dark-page-light);
+    z-index: 0;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+
+.grid-view .list-item .line-two {
+    top: 15%;
+    background-color: #99DD55;
+}
+
+.grid-view .list-item:hover .item-desc {
+    transform: translate(calc(20vw - 50%), 0);
+    opacity: 1;
+}
+
+.compact-grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.compact-grid-view .list-item {
+    text-align: center;
+    flex: 1 0 25%;
+    height: 20%;
+    width: 20%;
+    padding: 25px;
+    
+}
+
+.compact-grid-view .list-item .item-title {
+    font-size: 1.5em;
+}
+
+.compact-grid-view .list-item img {
+    width: 80%;
+    object-fit: contain;
+}
+
+.list-view {
+    display: block;
+}
+
+.list-view .list-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    height: 100px;
+    width: 100%;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.list-view .list-item .item-title {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 25px;
+}
+
+.list-view .list-item img {
+    display: inline-block;
+    width: 50%;
+    object-fit: contain;
+}

@@ -1,35 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="index" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hadron</title>
-     
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/index.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+     
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+    <script src="js/modules/nav.js" type="module"></script>
 </head>
 <body>
-    <p>Hadron is the world's first all in one store! Whether you're into video editing,
-        photo editing, code development, or gaming, Hadron brings it all together in one seamless
-        platform. Discover powerfull tools for creators, developpers, and gamers alike, all available
-        for purchase and download in one place. Explore our diverse collection and elevate your projects
-        today!
-    </p>
+    
+    <header class="header first-element">
+        <div class="image-container">
+            <img src="/assets/images/backgrounds/background.jpg" alt="header Image" class="background-image">
+            <div class="centered-text">Hadron</div>
+        </div>
+    </header>
 
-    <h2>Most Popular</h2>
 
-    <a href=""><img src="" alt=""></a>
-    <a href=""><img src="" alt=""></a>
-    <a href=""><img src="" alt=""></a>
-    <a href=""><img src="" alt=""></a>
-    <a href=""><img src="" alt=""></a>
-    <a href=""><img src="" alt=""></a>
+    <div class="introText">
+        <p>Hadron is the world’s only all-in-one platform that brings together powerful tools for photo editing, video editing, and code development. 
+        Whether you're a creator, developer, or gamer, Hadron offers a seamless experience with everything you need in one place. Explore our expansive 
+        library of published games, unleash your creativity, and elevate your digital projects like never before. Join a growing community of innovators who 
+        trust Hadron to power their vision.</p>
+    </div>
 
+    <section class="popular">
+        <h2>&#x1F525; Most Popular &#x1F525;</h2>
+        <div class="popular-apps" id="popular-apps">
+            <a href="#" class="app">
+                <img src="https://placehold.co/300x300" alt="App 1" />
+            </a>
+            <a href="#" class="app">
+                <img src="https://placehold.co/300x300" alt="App 2" />
+            </a>
+            <a href="#" class="app">
+                <img src="https://placehold.co/300x300" alt="App 3" />
+            </a>  
+            <a href="#" class="app">
+                <img src="https://placehold.co/300x300" alt="App 4" />
+            </a>
+            <a href="#" class="app">
+                <img src="https://placehold.co/300x300" alt="App 5" />
+            </a>
+            <a href="#" class="app">
+                <img src="https://placehold.co/300x300" alt="App 6" />
+            </a>
+        </div>
+    </section>
+    
+    <div class="container-grid">
+        <div class="grid-item"><img src="assets/videos/background1.png" alt="Video Placeholder" /></div>
+        <div class="grid-item info"><p>Discover new ways to code and create with Hadron’s advanced editor tools.</p></div>
+        <div class="grid-item info"><p>Browse through a wide range of curated apps and games.</p></div>
+        <div class="grid-item"><img src="assets/videos/background2.png" alt="Video Placeholder" /></div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script type="module" src="/js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+body{
+    background-color: var(--background-color);;
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
+.container-about{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1000px;
+    justify-items: center;
+    align-items: center;
+}
+
+.aboutText{
+    grid-column: 1;
+    margin: 40px;
+}
+
+.aboutText p{
+    font-size: larger;
+
+}
+
+.aboutText h2{
+    font-size: 4em;
+    margin-bottom: 60px;
+
+}
+
+.aboutImg{
+    grid-column: 2;
+}
+
+#linkToDR{
+    color: var(--color-normal);
+}
+
+#linkToDR:visited{
+    color: var(--color-light)
+}

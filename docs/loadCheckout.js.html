@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: loadCheckout.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: loadCheckout.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { showAlert } from "./createAccount.js";
+
+
+/**
+ * Initializes the checkout page by 
+ * loading shipping and billing information
+ * 
+ * @export
+ */
+export function loadCheckout(){
+    loadShippingInformation();
+}
+
+/**
+ * Loads the current user's contact and 
+ * shipping information into the form fields.
+ * Also displays the total price stored in sessionStorage.
+ */
+function loadShippingInformation(){
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    document.getElementById("email").value = currentUser.email;
+    document.getElementById("phonenum").value = currentUser.phone;
+    
+    document.getElementById("street").value = currentUser.location.street;
+    document.getElementById("aptNum").value = currentUser.location.aptNum;
+    document.getElementById("postalCode").value = currentUser.location.postalCode;
+    document.getElementById("city").value = currentUser.location.city;
+    document.getElementById("province").value = currentUser.location.province;
+    document.getElementById("country").value = currentUser.location.country;
+    const totalPrice = sessionStorage.getItem("total-price");
+    document.getElementById("price").textContent = "Total Price: " + totalPrice;
+}
+
+/**
+ * Handles purchase confirmation by validating card 
+ * input and either confirming or rejecting the transaction.
+ * 
+ * @export
+ * @param {Event} event - form submission event
+ */
+export function confirmPurchase(event){
+    event.preventDefault();
+    checkCardCredentials();
+}
+
+/**
+ * Validates the credit card number and CVV fields.
+ * If valid, it clears the cart and displays a success message.
+ * If invalid, shows an error alert with a list of problems.
+ */
+function checkCardCredentials(){
+    const cardNum = document.getElementById("cardnumber").value;
+    const cvv = document.getElementById("cvv").value;
+    const cardNumberRegex = /^\d{16}$/;
+    const cvvRegex = /^\d{3}$/;
+
+    let isValid = true;
+    const message = [];
+
+    if(cardNum === "" || cvv === ""){
+        message.push("Fill out all fields");
+        isValid = false;
+    }
+    else{
+        if(cardNumberRegex.test(cardNum) == false){
+            message.push("Ivalid Card Format");
+            isValid = false;
+        }
+
+        if(cvvRegex.test(cvv) == false){
+            message.push("Invalid cvv Format");
+            isValid = false;
+        }
+    }
+    if (isValid) {
+        clearCart();
+        showAlert("Purchase Confirmed!", "success", "alert-placeholder");
+    } else {
+        showAlert(`Error Confirming Purchase: &lt;ul>&lt;li>${message.join('&lt;/li>&lt;li>')}&lt;/ul>`, "danger", "alert-placeholder");
+    }
+}
+/**
+ * Clears the cart of the account that is logged in
+ */
+function clearCart(){
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const accounts = JSON.parse(localStorage.getItem("accounts"));
+
+    const userIndex = accounts.findIndex(acc =>
+        acc.email === currentUser.email || acc.username === currentUser.username
+    );
+
+    if (userIndex !== -1) {
+        accounts[userIndex].cart = [];
+        localStorage.setItem("accounts", JSON.stringify(accounts));
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DESC_HIDE">DESC_HIDE</a></li><li><a href="global.html#DESC_SHOW">DESC_SHOW</a></li><li><a href="global.html#VIEW_CONPACT_GRID">VIEW_CONPACT_GRID</a></li><li><a href="global.html#VIEW_GRID">VIEW_GRID</a></li><li><a href="global.html#VIEW_LIST">VIEW_LIST</a></li><li><a href="global.html#addAccounts">addAccounts</a></li><li><a href="global.html#addMarker">addMarker</a></li><li><a href="global.html#addToCart">addToCart</a></li><li><a href="global.html#amiibo">amiibo</a></li><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#arrayEquals">arrayEquals</a></li><li><a href="global.html#changeDisplay">changeDisplay</a></li><li><a href="global.html#characters">characters</a></li><li><a href="global.html#checkCardCredentials">checkCardCredentials</a></li><li><a href="global.html#checkCredentials">checkCredentials</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#clearCart">clearCart</a></li><li><a href="global.html#confirmPurchase">confirmPurchase</a></li><li><a href="global.html#createAccount">createAccount</a></li><li><a href="global.html#fetchAmiibo">fetchAmiibo</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchSchale">fetchSchale</a></li><li><a href="global.html#fetchShows">fetchShows</a></li><li><a href="global.html#findMarker">findMarker</a></li><li><a href="global.html#findProducts">findProducts</a></li><li><a href="global.html#getCustomIcon">getCustomIcon</a></li><li><a href="global.html#goToCheckout">goToCheckout</a></li><li><a href="global.html#handlePromo">handlePromo</a></li><li><a href="global.html#initApp">initApp</a></li><li><a href="global.html#initList">initList</a></li><li><a href="global.html#initMostPopular">initMostPopular</a></li><li><a href="global.html#initSignIn">initSignIn</a></li><li><a href="global.html#kebabToEncoded">kebabToEncoded</a></li><li><a href="global.html#loadButtons">loadButtons</a></li><li><a href="global.html#loadCart">loadCart</a></li><li><a href="global.html#loadCheckout">loadCheckout</a></li><li><a href="global.html#loadDataPage">loadDataPage</a></li><li><a href="global.html#loadLocations">loadLocations</a></li><li><a href="global.html#loadMap">loadMap</a></li><li><a href="global.html#loadProducts">loadProducts</a></li><li><a href="global.html#loadPromo">loadPromo</a></li><li><a href="global.html#loadShippingInformation">loadShippingInformation</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#markers">markers</a></li><li><a href="global.html#parseAmiibo">parseAmiibo</a></li><li><a href="global.html#parseList">parseList</a></li><li><a href="global.html#parseProducts">parseProducts</a></li><li><a href="global.html#parseShows">parseShows</a></li><li><a href="global.html#productTotal">productTotal</a></li><li><a href="global.html#promo">promo</a></li><li><a href="global.html#sendInquiry">sendInquiry</a></li><li><a href="global.html#setupNav">setupNav</a></li><li><a href="global.html#showAlert">showAlert</a></li><li><a href="global.html#showAmount">showAmount</a></li><li><a href="global.html#showElementGroup">showElementGroup</a></li><li><a href="global.html#shows">shows</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#storeInquiry">storeInquiry</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#updateButtons">updateButtons</a></li><li><a href="global.html#updateCartQuantity">updateCartQuantity</a></li><li><a href="global.html#updateList">updateList</a></li><li><a href="global.html#updateProductTotal">updateProductTotal</a></li><li><a href="global.html#updateValues">updateValues</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue May 20 2025 23:43:35 GMT-0400 (Eastern Daylight Saving Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

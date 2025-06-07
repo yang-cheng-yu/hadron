@@ -1,1 +1,43 @@
 @import url('general.css');
+
+.main {
+    display: flex;
+
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
+.container-cart{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+.to-checkout-section {
+    align-self: start;
+    padding-top: 20%;
+    line-height: 3em;
+    position: sticky;
+    top: 0;
+    font-size: 1.4em;
+}
+
+table{
+    font-size: 24px;
+    margin: 30px;
+
+}
+
+th, td {
+    padding: 30px;
+}
+
+th {
+    background-color: var(--dark-page-darker);
+}

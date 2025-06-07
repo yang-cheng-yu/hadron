@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: createAccount.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: createAccount.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Handles account creation form submission.
+ * Prevents default form action, validates input, stores user data,
+ * and adds account to storage.
+ * 
+ * @param {Event} event - The form submission event
+ * @export
+ */
+export function createAccount(event){
+    event.preventDefault();
+
+    const result = checkCredentials();
+    if (result != true){
+        console.log(result);
+        return;
+    }
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    localStorage.setItem('username', username, 'email', email, "password", password);
+
+    addAccounts(username,email,password);
+}
+
+/**
+ * Function used for form validation.
+ * Ensures all the fields inputs are well formatted
+ * 
+ * @returns {void}
+ */
+function checkCredentials(){
+    const emailregex = /[a-z0-9]+@[a-z]+\.[a-z]+$/;
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const phonenum = document.getElementById("phonenum").value;
+    const street = document.getElementById("street").value;
+    const aptNum = document.getElementById("aptNum").value;
+    const postCode = document.getElementById("postalCode").value;
+    const city = document.getElementById("city").value;
+    const province = document.getElementById("province").value;
+    const country = document.getElementById("country").value;
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confpassword = document.getElementById("confirm-password").value.trim();
+
+    let isValid = true;
+    const messages = [];
+
+    if (email === "" || username === "" || password === "" || confpassword === "" ||
+        phonenum === "" || street === "" || aptNum === "" || postCode === "" ||
+        city === "" || province === "" || country === "")
+    {
+        messages.push("Fill out all fields");
+        isValid = false;
+    }
+    else {
+        if (!/^[a-zA-Z0-9\.]{1,16}$/.test(username.trim())) {
+            isValid = false;
+            messages.push("Invalid username - 16 chars max");
+        }
+        if (/^[a-z0-9\.]+@[a-z]+\.[a-z]{2,6}(\.[a-z]{2,6})?$/.test(email) == false){
+            isValid = false;
+            messages.push("Invalid email Form");
+        }
+        if (/^[a-zA-Z0-9.,\/';!@#$%^&amp;*()-+=_\[\]"':;?>&lt;`~]{8,}$/.test(password) == false) {
+            isValid = false;
+            messages.push("Password must be at least 8 characters");
+        }
+        if (password != confpassword){
+            isValid = false;
+            messages.push("Passwords do not match");
+        }
+        const phonenumRegex = /^\d{10}$/;
+        if (phonenumRegex.test(phonenum) == false){
+            messages.push("Phone Number must be 10 numbers");
+            isValid = false;
+        }
+        const lettersRegex = /^[A-Za-z]+$/;
+        if (lettersRegex.test(fname) == false){
+            messages.push("First name must be only letters");
+            isValid = false;
+        }
+        if (lettersRegex.test(lname) == false){
+            messages.push("Last name must be letters");
+            isValid = false;
+        }
+        const numberRegex = /\d+/;
+        if (numberRegex.test(aptNum) == false){
+            messages.push("apt Num must be a number");
+            isValid = false;
+        }
+        if (lettersRegex.test(city) == false){
+            messages.push("City must be letters");
+            isValid = false;
+        }
+        if (lettersRegex.test(country) == false){
+            messages.push("Country must be letters");
+            isValid = false;
+        }
+        const postCodeRegex = /[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d/;
+        if (postCodeRegex.test(postCode) == false){
+            messages.push("Postal Code bad Format");
+            isValid = false;
+        }
+        if (lettersRegex.test(province) == false){
+            messages.push("province must be letters");
+            isValid = false;
+        }
+    }
+    if (isValid) {
+        addAccounts(username,email,password);
+        showAlert("User registered successfully", "success", "alert-container");
+    } else {
+        showAlert(`Error registering user: &lt;ul>&lt;li>${messages.join('&lt;/li>&lt;li>')}&lt;/ul>`, "danger", "alert-container");
+    }
+}
+
+/**
+ * adds the information of the account into
+ * local storage array of accounts
+ * 
+ * @param {string} username - The username of the account
+ * @param {string} email - The email of the account
+ * @param {string} password - The password of the account
+ * @param {string} fname - The user's first name
+ * @param {string} lname - The user's last name
+ * @param {string} phonenum - The user's phone number
+ * @param {string} street - Street address of the user
+ * @param {string} aptNum - Apartment number (optional)
+ * @param {string} postCode - Postal code
+ * @param {string} city - City of residence
+ * @param {string} province - Province of residence
+ * @param {string} country - Country of residence
+ * @returns {void}
+ */
+function addAccounts(username, email, password, fname, lname, phonenum, street, aptNum, postCode, city, province, country) {
+    const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+    const duplicate = accounts.find(acc => acc.email === email || acc.username === username);
+    if (duplicate) {
+        return;
+    }
+    const newAccount = {
+        username: username,
+        email: email,
+        password: password,
+        name: {
+            firstName: fname,
+            lastName: lname
+        },
+        phone: phonenum,
+        location: {
+            street: street,
+            aptNum: aptNum,
+            postalCode: postCode,
+            city: city,
+            province: province,
+            country: country
+        },
+        cart: []
+    };
+    accounts.push(newAccount);
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+}
+
+
+/**
+ * Function used for showing an
+ * alert on the screen for the form
+ * validation. can either be success or error type
+ * 
+ * @param {string} message - Message to display
+ * @param {string} type - type of alert
+ * @param {string} alertPlaceholderId - id of the element that is going to display
+ * 
+ * @export
+ */
+export function showAlert(message, type, alertPlaceholderId) {
+    const alertPlaceholder = document.getElementById(alertPlaceholderId);
+    alertPlaceholder.innerHTML = '';
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `&lt;div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   &lt;div>${message}&lt;/div>`,
+        '   &lt;button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">&lt;/button>',
+        '&lt;/div>'
+    ].join('')
+
+    alertPlaceholder.append(wrapper)
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DESC_HIDE">DESC_HIDE</a></li><li><a href="global.html#DESC_SHOW">DESC_SHOW</a></li><li><a href="global.html#VIEW_CONPACT_GRID">VIEW_CONPACT_GRID</a></li><li><a href="global.html#VIEW_GRID">VIEW_GRID</a></li><li><a href="global.html#VIEW_LIST">VIEW_LIST</a></li><li><a href="global.html#addAccounts">addAccounts</a></li><li><a href="global.html#addMarker">addMarker</a></li><li><a href="global.html#addToCart">addToCart</a></li><li><a href="global.html#amiibo">amiibo</a></li><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#arrayEquals">arrayEquals</a></li><li><a href="global.html#changeDisplay">changeDisplay</a></li><li><a href="global.html#characters">characters</a></li><li><a href="global.html#checkCardCredentials">checkCardCredentials</a></li><li><a href="global.html#checkCredentials">checkCredentials</a></li><li><a href="global.html#checkLogin">checkLogin</a></li><li><a href="global.html#clearCart">clearCart</a></li><li><a href="global.html#confirmPurchase">confirmPurchase</a></li><li><a href="global.html#createAccount">createAccount</a></li><li><a href="global.html#fetchAmiibo">fetchAmiibo</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#fetchSchale">fetchSchale</a></li><li><a href="global.html#fetchShows">fetchShows</a></li><li><a href="global.html#findMarker">findMarker</a></li><li><a href="global.html#findProducts">findProducts</a></li><li><a href="global.html#getCustomIcon">getCustomIcon</a></li><li><a href="global.html#goToCheckout">goToCheckout</a></li><li><a href="global.html#handlePromo">handlePromo</a></li><li><a href="global.html#initApp">initApp</a></li><li><a href="global.html#initList">initList</a></li><li><a href="global.html#initMostPopular">initMostPopular</a></li><li><a href="global.html#initSignIn">initSignIn</a></li><li><a href="global.html#kebabToEncoded">kebabToEncoded</a></li><li><a href="global.html#loadButtons">loadButtons</a></li><li><a href="global.html#loadCart">loadCart</a></li><li><a href="global.html#loadCheckout">loadCheckout</a></li><li><a href="global.html#loadDataPage">loadDataPage</a></li><li><a href="global.html#loadLocations">loadLocations</a></li><li><a href="global.html#loadMap">loadMap</a></li><li><a href="global.html#loadProducts">loadProducts</a></li><li><a href="global.html#loadPromo">loadPromo</a></li><li><a href="global.html#loadShippingInformation">loadShippingInformation</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#markers">markers</a></li><li><a href="global.html#parseAmiibo">parseAmiibo</a></li><li><a href="global.html#parseList">parseList</a></li><li><a href="global.html#parseProducts">parseProducts</a></li><li><a href="global.html#parseShows">parseShows</a></li><li><a href="global.html#productTotal">productTotal</a></li><li><a href="global.html#promo">promo</a></li><li><a href="global.html#sendInquiry">sendInquiry</a></li><li><a href="global.html#setupNav">setupNav</a></li><li><a href="global.html#showAlert">showAlert</a></li><li><a href="global.html#showAmount">showAmount</a></li><li><a href="global.html#showElementGroup">showElementGroup</a></li><li><a href="global.html#shows">shows</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#storeInquiry">storeInquiry</a></li><li><a href="global.html#style">style</a></li><li><a href="global.html#updateButtons">updateButtons</a></li><li><a href="global.html#updateCartQuantity">updateCartQuantity</a></li><li><a href="global.html#updateList">updateList</a></li><li><a href="global.html#updateProductTotal">updateProductTotal</a></li><li><a href="global.html#updateValues">updateValues</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue May 20 2025 23:43:35 GMT-0400 (Eastern Daylight Saving Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

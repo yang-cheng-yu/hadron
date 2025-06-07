@@ -1,0 +1,19 @@
+{
+    "codes": [
+        {
+            "id" : 1,
+            "code" : "OFF20",
+            "amount" : 20
+        },
+        {
+            "id" : 2,
+            "code" : "SECRET40",
+            "amount" : 40
+        },
+        {
+            "id" : 3,
+            "code" : "ADMIN",
+            "amount" : 100
+        }
+    ]
+}
